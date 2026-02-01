@@ -3,126 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>N&M Foundation | Leading Cyber Security Agency</title>
+    <title>N&M Foundation | Strategic Cyber Intelligence</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body { background-color: #050505; color: #e5e7eb; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .hero-gradient { background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, rgba(5, 5, 5, 1) 70%); }
         .glass-nav { background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
         .feature-card { background: #0a0a0a; border: 1px solid #1f2937; transition: 0.4s; }
-        .feature-card:hover { border-color: #3b82f6; transform: translateY(-10px); }
-        .counter-box { background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); border: 1px solid #1a1a1a; }
+        .feature-card:hover { border-color: #3b82f6; transform: translateY(-5px); }
+        .review-card { background: linear-gradient(145deg, #0f0f0f, #050505); border: 1px solid #1a1a1a; }
+        .accent-text { color: #3b82f6; }
     </style>
 </head>
 <body>
 
     <nav class="fixed top-0 w-full p-5 z-50 glass-nav">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-xl md:text-2xl font-black italic tracking-tighter uppercase text-white">N&M<span class="text-blue-500">_Foundation</span></h1>
+            <h1 class="text-xl md:text-2xl font-black italic tracking-tighter uppercase text-white">N&M<span class="accent-text">_Foundation</span></h1>
             <div class="hidden md:flex space-x-10 text-[10px] font-bold tracking-[0.2em] text-gray-400">
                 <a href="#services" class="hover:text-blue-500 transition">SERVICES</a>
-                <a href="#stats" class="hover:text-blue-500 transition">RECORDS</a>
-                <a href="https://wa.me/916355824044" class="bg-blue-600 px-5 py-2 rounded text-[10px] font-bold text-white hover:bg-blue-700 transition uppercase tracking-widest italic">Client Support</a>
+                <a href="#reviews" class="hover:text-blue-500 transition">CLIENTS</a>
+                <a href="https://wa.me/916355824044" class="bg-blue-600 px-5 py-2 rounded text-[10px] font-bold text-white hover:bg-blue-700 transition uppercase tracking-widest italic">Get Support</a>
             </div>
         </div>
     </nav>
 
-    <section class="min-h-[80vh] flex items-center justify-center hero-gradient pt-32 px-6">
-        <div class="text-center max-w-5xl">
-            <span class="text-blue-500 font-bold text-[10px] tracking-[0.5em] uppercase mb-4 block animate-pulse">Enterprise Security Simplified</span>
-            <h2 class="text-5xl md:text-8xl font-black mb-8 italic tracking-tighter text-white leading-none">
-                ADVANCED <span class="text-blue-500">CYBER</span> DEFENSE.
+    <header class="min-h-[70vh] flex items-center justify-center pt-32 px-6 text-center">
+        <div class="max-w-4xl">
+            <h2 class="text-5xl md:text-8xl font-black mb-8 italic tracking-tighter text-white uppercase leading-none">
+                Elite <span class="accent-text">Cyber</span> Authority.
             </h2>
-            <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-xl leading-relaxed mb-12">
-                N&M Foundation is a premier security agency specializing in digital forensics, OSINT automation, and corporate infrastructure protection.
+            <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-lg leading-relaxed mb-12 italic">
+                Protecting enterprise infrastructure with advanced forensics and proactive defense strategies.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="solutions.html" class="px-10 py-4 bg-white text-black font-black rounded uppercase text-xs tracking-widest hover:bg-gray-200 transition">Explore Tools</a>
-                <a href="https://wa.me/916355824044" class="px-10 py-4 border border-gray-700 text-white font-black rounded uppercase text-xs tracking-widest hover:bg-gray-900 transition">Consult Agency</a>
+            <a href="solutions.html" class="px-12 py-4 bg-white text-black font-black rounded uppercase text-xs tracking-widest hover:bg-gray-200 transition">Enter Portal</a>
+        </div>
+    </header>
+
+    <section class="container mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="text-center border-r border-gray-900 last:border-0">
+            <div class="text-2xl md:text-4xl font-black accent-text">50+</div>
+            <div class="text-[9px] uppercase font-bold text-gray-600 tracking-widest">Global Audits</div>
+        </div>
+        <div class="text-center border-r border-gray-900 last:border-0">
+            <div class="text-2xl md:text-4xl font-black accent-text">120+</div>
+            <div class="text-[9px] uppercase font-bold text-gray-600 tracking-widest">Tools Deployed</div>
+        </div>
+        <div class="text-center border-r border-gray-900 last:border-0">
+            <div class="text-2xl md:text-4xl font-black accent-text">100%</div>
+            <div class="text-[9px] uppercase font-bold text-gray-600 tracking-widest">Integrity Rate</div>
+        </div>
+        <div class="text-center border-r border-gray-900 last:border-0">
+            <div class="text-2xl md:text-4xl font-black accent-text">24/7</div>
+            <div class="text-[9px] uppercase font-bold text-gray-600 tracking-widest">Intelligence</div>
+        </div>
+    </section>
+
+    <section id="reviews" class="container mx-auto px-6 py-24 border-t border-gray-900">
+        <div class="text-center mb-16">
+            <h3 class="text-3xl font-black uppercase tracking-widest text-white italic">Client Intelligence</h3>
+            <p class="text-gray-500 text-xs mt-2 uppercase tracking-[0.3em]">Verified Agency Feedback</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 italic">
+            <div class="review-card p-8 rounded-2xl relative">
+                <span class="text-5xl text-blue-900 absolute top-4 right-6 opacity-20">"</span>
+                <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                    "N&M Foundation's automated OSINT tools saved our team weeks of manual intelligence gathering. Their forensics suite is enterprise-grade."
+                </p>
+                <div class="border-t border-gray-900 pt-4">
+                    <p class="text-[10px] font-black text-white uppercase tracking-widest">Director of IT</p>
+                    <p class="text-[9px] text-blue-500 font-bold uppercase">Tech Solutions Corp</p>
+                </div>
+            </div>
+
+            <div class="review-card p-8 rounded-2xl relative border-blue-900/30 shadow-2xl">
+                <span class="text-5xl text-blue-900 absolute top-4 right-6 opacity-20">"</span>
+                <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                    "The forensic log investigation provided by N&M Foundation was crucial in securing our infrastructure after a major threat alert."
+                </p>
+                <div class="border-t border-gray-900 pt-4">
+                    <p class="text-[10px] font-black text-white uppercase tracking-widest">Security Analyst</p>
+                    <p class="text-[9px] text-blue-500 font-bold uppercase">FinSafe Global</p>
+                </div>
+            </div>
+
+            <div class="review-card p-8 rounded-2xl relative">
+                <span class="text-5xl text-blue-900 absolute top-4 right-6 opacity-20">"</span>
+                <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                    "Professional, ethical, and extremely fast. Their Cyber Defense methodologies are exactly what modern enterprises need today."
+                </p>
+                <div class="border-t border-gray-900 pt-4">
+                    <p class="text-[10px] font-black text-white uppercase tracking-widest">Chief Tech Officer</p>
+                    <p class="text-[9px] text-blue-500 font-bold uppercase">CloudNet Systems</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="stats" class="container mx-auto px-6 py-20">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-            <div class="counter-box p-8 rounded-2xl text-center shadow-xl">
-                <div class="text-3xl md:text-5xl font-black text-blue-500 mb-2 italic" data-target="50">0</div>
-                <div class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Security Audits</div>
-            </div>
-            <div class="counter-box p-8 rounded-2xl text-center shadow-xl">
-                <div class="text-3xl md:text-5xl font-black text-blue-500 mb-2 italic" data-target="120">0</div>
-                <div class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Tools Deployed</div>
-            </div>
-            <div class="counter-box p-8 rounded-2xl text-center shadow-xl">
-                <div class="text-3xl md:text-5xl font-black text-blue-500 mb-2 italic" data-target="95">0</div>
-                <div class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Threats Blocked</div>
-            </div>
-            <div class="counter-box p-8 rounded-2xl text-center shadow-xl border-blue-900/30">
-                <div class="text-3xl md:text-5xl font-black text-green-500 mb-2 italic" data-target="100">0</div>
-                <div class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Uptime %</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="container mx-auto px-6 py-24 border-t border-gray-900">
-        <div class="text-center mb-20 text-white">
-            <h3 class="text-3xl font-black uppercase tracking-widest italic">Agency Expertise</h3>
-            <div class="h-1 w-20 bg-blue-600 mx-auto mt-4"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="feature-card p-10 rounded-2xl">
-                <h4 class="text-lg font-bold text-white mb-4 uppercase accent-text">Cyber Defense</h4>
-                <p class="text-xs text-gray-500 leading-relaxed italic">Proactive threat mitigation and real-time monitoring for large-scale enterprise networks.</p>
-            </div>
-
-            <div class="feature-card p-10 rounded-2xl">
-                <h4 class="text-lg font-bold text-white mb-4 uppercase accent-text">Digital Forensics</h4>
-                <p class="text-xs text-gray-500 leading-relaxed italic">In-depth investigation of digital footprints and evidence recovery from compromised systems.</p>
-            </div>
-
-            <div class="feature-card p-10 rounded-2xl">
-                <h4 class="text-lg font-bold text-white mb-4 uppercase accent-text">OSINT Automation</h4>
-                <p class="text-xs text-gray-500 leading-relaxed italic text-gray-500 italic">High-speed intelligence gathering and data analysis for proactive vulnerability assessments.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact" class="py-20 border-t border-gray-900 bg-black text-center px-6">
-        <p class="text-gray-600 text-[10px] tracking-[0.5em] uppercase mb-10 font-bold">Confidentiality • Integrity • Availability</p>
-        <p class="text-[9px] text-gray-800 font-bold tracking-tighter uppercase">© 2026 N&M Foundation | Strategic Cyber Intelligence</p>
+    <footer class="py-12 text-center border-t border-gray-900 bg-black">
+        <p class="text-[9px] text-gray-800 font-bold tracking-[0.5em] uppercase">© 2026 N&M Foundation | Strategic Cyber Intelligence</p>
     </footer>
-
-    <script>
-        const counters = document.querySelectorAll('[data-target]');
-        const speed = 200;
-
-        const startCounters = () => {
-            counters.forEach(counter => {
-                const updateCount = () => {
-                    const target = +counter.getAttribute('data-target');
-                    const count = +counter.innerText;
-                    const inc = target / speed;
-
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + inc);
-                        setTimeout(updateCount, 15);
-                    } else {
-                        counter.innerText = target + (counter.parentElement.innerText.includes('%') ? '' : '+');
-                    }
-                };
-                updateCount();
-            });
-        }
-
-        // Intersection Observer to start animation when visible
-        const observer = new IntersectionObserver((entries) => {
-            if(entries[0].isIntersecting) startCounters();
-        }, { threshold: 0.5 });
-
-        observer.observe(document.querySelector('#stats'));
-    </script>
 
 </body>
 </html>
