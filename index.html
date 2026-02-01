@@ -6,39 +6,64 @@
     <title>DarkShadow | Cyber Tools & Projects</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #050505; color: #00ff41; font-family: 'Courier New', monospace; }
+        body { background-color: #050505; color: #00ff41; font-family: 'Courier New', monospace; scroll-behavior: smooth; }
         .cyber-border { border: 1px solid #00ff41; box-shadow: 0 0 10px rgba(0, 255, 65, 0.2); }
         .cyber-border:hover { box-shadow: 0 0 20px #00ff41; transform: translateY(-5px); transition: 0.3s; }
+        .terminal-container { background: #000; border: 1px solid #00ff41; border-radius: 5px; overflow: hidden; }
+        .terminal-header { background: #1a1a1a; padding: 5px 10px; display: flex; gap: 6px; }
     </style>
 </head>
 <body>
 
-    <nav class="p-5 border-b border-green-900 flex justify-between items-center bg-black">
-        <h1 class="text-xl font-bold tracking-widest uppercase">DarkShadow<span class="animate-pulse">_</span></h1>
+    <nav class="fixed top-0 w-full p-5 border-b border-green-900 flex justify-between items-center bg-black z-50">
+        <h1 class="text-xl font-bold tracking-widest uppercase text-white">DarkShadow<span class="animate-pulse">_</span></h1>
         <div class="space-x-4 text-sm">
-            <a href="#projects" class="hover:text-white">PROJECTS</a>
+            <a href="#about" class="hover:text-white">ABOUT</a>
             <a href="#tools" class="hover:text-white">TOOLS</a>
+            <a href="https://github.com/darkshadow-org" target="_blank" class="hover:text-white">GITHUB</a>
         </div>
     </nav>
 
-    <header class="py-16 text-center">
-        <h2 class="text-4xl font-bold text-white mb-2">IT PROJECTS & CYBER TOOLS</h2>
+    <header class="pt-32 pb-16 text-center">
+        <h2 class="text-4xl md:text-6xl font-bold text-white mb-2">IT PROJECTS & CYBER TOOLS</h2>
         <p class="text-green-700 italic">"Security is an illusion, anonymity is a choice."</p>
     </header>
 
-    <section id="tools" class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
+    <section class="container mx-auto px-6 mb-16">
+        <div class="terminal-container">
+            <div class="terminal-header text-xs">
+                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span class="ml-2 text-gray-500">kali-linux — bash</span>
+            </div>
+            <div id="terminal-text" class="p-4 min-h-[100px] text-sm md:text-base"></div>
+        </div>
+    </section>
+
+    <section id="about" class="container mx-auto px-6 py-10">
+        <h3 class="text-2xl mb-4 text-white font-bold">./Whoami</h3>
+        <p class="text-gray-400 leading-relaxed max-w-3xl">
+            Main ek Cyber Security enthusiast hoon, jo <span class="text-green-500 font-bold">Cyber Defense aur Forensics Analysis</span> mein specialize kar raha hoon. 
+            Mera kaam Kali Linux environment mein OSINT tools aur digital forensics investigation ko automate karna hai.
+        </p>
+    </section>
+
+    <section id="tools" class="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-2 gap-10">
         
         <div class="cyber-border p-6 bg-black rounded">
-            <h3 class="text-white text-xl font-bold">Free OSINT Toolkit</h3>
-            <p class="text-gray-500 my-4 text-sm">Basics of WHOIS, theHarvester, and Google Dorking scripts.</p>
-            <a href="YOUR_GITHUB_LINK_HERE" class="block text-center py-2 border border-green-500 hover:bg-green-500 hover:text-black font-bold">FREE DOWNLOAD</a>
+            <span class="text-xs text-green-500 border border-green-500 px-2 py-0.5 rounded">PUBLIC REPO</span>
+            <h3 class="text-white text-xl font-bold mt-3">Free OSINT Toolkit</h3>
+            <p class="text-gray-500 my-4 text-sm">Automated scripts using WHOIS and theHarvester for rapid info gathering.</p>
+            <a href="https://github.com/darkshadow-org/ds.org" class="block text-center py-2 border border-green-500 hover:bg-green-500 hover:text-black font-bold">VIEW ON GITHUB</a>
         </div>
 
         <div class="cyber-border p-6 bg-black rounded border-yellow-600">
-            <h3 class="text-white text-xl font-bold text-yellow-500 italic">Exclusive Forensics Pro</h3>
-            <p class="text-gray-500 my-4 text-sm">Advanced log analysis and data recovery automation tools.</p>
-            <a href="https://wa.me/6355824044text=Hi%20DarkShadow,%20I%20want%20to%20buy%20the%20Exclusive%20Forensics%20Kit" 
-               class="block text-center py-2 bg-yellow-600 text-black font-bold hover:bg-yellow-400">
+            <span class="text-xs text-yellow-500 border border-yellow-500 px-2 py-0.5 rounded">EXCLUSIVE CONTENT</span>
+            <h3 class="text-white text-xl font-bold mt-3 italic">Forensics Investigation Pro</h3>
+            <p class="text-gray-500 my-4 text-sm">Advanced forensic log analysis tools and data recovery scripts for investigators.</p>
+            <a href="https://wa.me/916355824044?text=Hi%20DarkShadow,%20I%20want%20to%20buy%20the%20Exclusive%20Forensics%20Kit" 
+               class="block text-center py-2 bg-yellow-600 text-black font-bold hover:bg-yellow-400 transition-colors">
                CONTACT TO BUY
             </a>
         </div>
@@ -46,8 +71,24 @@
     </section>
 
     <footer class="mt-20 py-10 border-t border-green-900 text-center text-xs text-gray-600">
-        ROOT@DARKSHADOW-ORG ~$ EXIT
+        ROOT@DARKSHADOW-ORG ~$ EXIT_SUCCESS
     </footer>
 
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script>
+        var app = document.getElementById('terminal-text');
+        var typewriter = new Typewriter(app, { loop: true, delay: 40 });
+
+        typewriter
+            .typeString('root@darkshadow:~$ <span class="text-white">whois paruluniversity.ac.in</span>')
+            .pauseFor(1500)
+            .deleteAll()
+            .typeString('root@darkshadow:~$ <span class="text-white">theHarvester -d target.com -b crtsh</span>')
+            .pauseFor(1500)
+            .deleteAll()
+            .typeString('root@darkshadow:~$ <span class="text-white">python3 forensics_tool.py --analyze</span>')
+            .pauseFor(2000)
+            .start();
+    </script>
 </body>
 </html>
