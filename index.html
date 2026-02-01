@@ -12,25 +12,23 @@
         .glass-nav { background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
         .feature-card { background: #0a0a0a; border: 1px solid #1f2937; transition: 0.4s; }
         .feature-card:hover { border-color: #3b82f6; transform: translateY(-10px); }
-        .cyber-btn { transition: 0.3s; position: relative; overflow: hidden; }
-        .cyber-btn:hover { box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+        .counter-box { background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); border: 1px solid #1a1a1a; }
     </style>
 </head>
 <body>
 
     <nav class="fixed top-0 w-full p-5 z-50 glass-nav">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-xl md:text-2xl font-black italic tracking-tighter uppercase">N&M<span class="text-blue-500">_Foundation</span></h1>
+            <h1 class="text-xl md:text-2xl font-black italic tracking-tighter uppercase text-white">N&M<span class="text-blue-500">_Foundation</span></h1>
             <div class="hidden md:flex space-x-10 text-[10px] font-bold tracking-[0.2em] text-gray-400">
                 <a href="#services" class="hover:text-blue-500 transition">SERVICES</a>
-                <a href="#about" class="hover:text-blue-500 transition">ABOUT</a>
-                <a href="#contact" class="hover:text-blue-500 transition">CONTACT</a>
+                <a href="#stats" class="hover:text-blue-500 transition">RECORDS</a>
+                <a href="https://wa.me/916355824044" class="bg-blue-600 px-5 py-2 rounded text-[10px] font-bold text-white hover:bg-blue-700 transition uppercase tracking-widest italic">Client Support</a>
             </div>
-            <a href="https://wa.me/916355824044" class="bg-blue-600 px-5 py-2 rounded text-[10px] font-bold text-white hover:bg-blue-700 transition uppercase tracking-widest">Client Portal</a>
         </div>
     </nav>
 
-    <section class="min-h-screen flex items-center justify-center hero-gradient pt-20 px-6">
+    <section class="min-h-[80vh] flex items-center justify-center hero-gradient pt-32 px-6">
         <div class="text-center max-w-5xl">
             <span class="text-blue-500 font-bold text-[10px] tracking-[0.5em] uppercase mb-4 block animate-pulse">Enterprise Security Simplified</span>
             <h2 class="text-5xl md:text-8xl font-black mb-8 italic tracking-tighter text-white leading-none">
@@ -40,61 +38,91 @@
                 N&M Foundation is a premier security agency specializing in digital forensics, OSINT automation, and corporate infrastructure protection.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="solutions.html" class="cyber-btn px-10 py-4 bg-white text-black font-black rounded uppercase text-xs tracking-widest">Explore Tools</a>
-                <a href="https://wa.me/916355824044" class="cyber-btn px-10 py-4 border border-gray-700 text-white font-black rounded uppercase text-xs tracking-widest hover:bg-gray-900">Hire Our Agency</a>
+                <a href="solutions.html" class="px-10 py-4 bg-white text-black font-black rounded uppercase text-xs tracking-widest hover:bg-gray-200 transition">Explore Tools</a>
+                <a href="https://wa.me/916355824044" class="px-10 py-4 border border-gray-700 text-white font-black rounded uppercase text-xs tracking-widest hover:bg-gray-900 transition">Consult Agency</a>
             </div>
         </div>
     </section>
 
-    <section id="services" class="container mx-auto px-6 py-24">
-        <div class="text-center mb-20">
-            <h3 class="text-3xl font-black uppercase tracking-widest text-white italic">Core Expertise</h3>
+    <section id="stats" class="container mx-auto px-6 py-20">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+            <div class="counter-box p-8 rounded-2xl text-center shadow-xl">
+                <div class="text-3xl md:text-5xl font-black text-blue-500 mb-2 italic" data-target="50">0</div>
+                <div class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Security Audits</div>
+            </div>
+            <div class="counter-box p-8 rounded-2xl text-center shadow-xl">
+                <div class="text-3xl md:text-5xl font-black text-blue-500 mb-2 italic" data-target="120">0</div>
+                <div class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Tools Deployed</div>
+            </div>
+            <div class="counter-box p-8 rounded-2xl text-center shadow-xl">
+                <div class="text-3xl md:text-5xl font-black text-blue-500 mb-2 italic" data-target="95">0</div>
+                <div class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Threats Blocked</div>
+            </div>
+            <div class="counter-box p-8 rounded-2xl text-center shadow-xl border-blue-900/30">
+                <div class="text-3xl md:text-5xl font-black text-green-500 mb-2 italic" data-target="100">0</div>
+                <div class="text-[10px] uppercase font-bold text-gray-500 tracking-widest">Uptime %</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="container mx-auto px-6 py-24 border-t border-gray-900">
+        <div class="text-center mb-20 text-white">
+            <h3 class="text-3xl font-black uppercase tracking-widest italic">Agency Expertise</h3>
             <div class="h-1 w-20 bg-blue-600 mx-auto mt-4"></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="feature-card p-10 rounded-2xl">
-                <div class="w-12 h-12 bg-blue-600/10 rounded flex items-center justify-center mb-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                </div>
-                <h4 class="text-lg font-bold text-white mb-4 uppercase">Cyber Defense</h4>
+                <h4 class="text-lg font-bold text-white mb-4 uppercase accent-text">Cyber Defense</h4>
                 <p class="text-xs text-gray-500 leading-relaxed italic">Proactive threat mitigation and real-time monitoring for large-scale enterprise networks.</p>
             </div>
 
             <div class="feature-card p-10 rounded-2xl">
-                <div class="w-12 h-12 bg-blue-600/10 rounded flex items-center justify-center mb-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                </div>
-                <h4 class="text-lg font-bold text-white mb-4 uppercase">Digital Forensics</h4>
+                <h4 class="text-lg font-bold text-white mb-4 uppercase accent-text">Digital Forensics</h4>
                 <p class="text-xs text-gray-500 leading-relaxed italic">In-depth investigation of digital footprints and evidence recovery from compromised systems.</p>
             </div>
 
             <div class="feature-card p-10 rounded-2xl">
-                <div class="w-12 h-12 bg-blue-600/10 rounded flex items-center justify-center mb-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                </div>
-                <h4 class="text-lg font-bold text-white mb-4 uppercase">OSINT Automation</h4>
-                <p class="text-xs text-gray-500 leading-relaxed italic">High-speed intelligence gathering and data analysis for proactive vulnerability assessments.</p>
+                <h4 class="text-lg font-bold text-white mb-4 uppercase accent-text">OSINT Automation</h4>
+                <p class="text-xs text-gray-500 leading-relaxed italic text-gray-500 italic">High-speed intelligence gathering and data analysis for proactive vulnerability assessments.</p>
             </div>
         </div>
     </section>
 
     <footer id="contact" class="py-20 border-t border-gray-900 bg-black text-center px-6">
-        <h3 class="text-xl font-black text-white italic mb-6">N&M FOUNDATION</h3>
-        <p class="text-gray-600 text-[10px] tracking-[0.5em] uppercase mb-10">Confidentiality • Integrity • Availability</p>
-        <div class="flex justify-center space-x-8 text-[10px] font-bold text-gray-500 tracking-widest uppercase">
-            <a href="https://wa.me/916355824044" class="hover:text-blue-500 transition">WhatsApp</a>
-            <a href="mailto:info@nmagency.com" class="hover:text-blue-500 transition">Email</a>
-            <a href="https://github.com/darkshadow-org/ds.org" class="hover:text-blue-500 transition text-white italic">GitHub</a>
-        </div>
-        <p class="mt-16 text-[9px] text-gray-800 font-bold tracking-tighter uppercase">© 2026 N&M Foundation | Strategic Cyber Intelligence</p>
+        <p class="text-gray-600 text-[10px] tracking-[0.5em] uppercase mb-10 font-bold">Confidentiality • Integrity • Availability</p>
+        <p class="text-[9px] text-gray-800 font-bold tracking-tighter uppercase">© 2026 N&M Foundation | Strategic Cyber Intelligence</p>
     </footer>
+
+    <script>
+        const counters = document.querySelectorAll('[data-target]');
+        const speed = 200;
+
+        const startCounters = () => {
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 15);
+                    } else {
+                        counter.innerText = target + (counter.parentElement.innerText.includes('%') ? '' : '+');
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        // Intersection Observer to start animation when visible
+        const observer = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting) startCounters();
+        }, { threshold: 0.5 });
+
+        observer.observe(document.querySelector('#stats'));
+    </script>
 
 </body>
 </html>
