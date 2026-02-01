@@ -24,7 +24,6 @@
         .hud-line { width: 100%; height: 1px; background: rgba(255, 0, 0, 0.15); position: fixed; animation: moveHUD 6s linear infinite; pointer-events: none; z-index: 50; }
         @keyframes moveHUD { 0% { top: 0; } 100% { top: 100%; } }
 
-        /* Glitch Animation for Robot Feel */
         .glitch-hover:hover { animation: glitch 0.2s infinite; }
         @keyframes glitch {
             0% { transform: translate(0); }
@@ -45,7 +44,7 @@
             <div class="hidden md:flex space-x-8 font-bold tracking-[0.3em] text-red-500/60 text-[10px]">
                 <a href="#protocols" class="hover:text-white transition uppercase">Protocols</a>
                 <a href="#terminal" class="hover:text-white transition uppercase">Core_Logs</a>
-                <a href="https://wa.me/916355824044" class="neon-border-red px-4 py-1.5 rounded text-red-500 hover:bg-red-600 hover:text-white transition uppercase italic">Secure_Link</a>
+                <a href="auth.html" class="neon-border-red px-4 py-1.5 rounded text-red-500 hover:bg-red-600 hover:text-white transition uppercase italic">Secure_Login</a>
             </div>
         </div>
     </nav>
@@ -57,7 +56,7 @@
         </h2>
         
         <div class="flex flex-wrap justify-center gap-6">
-            <a href="solutions.html" class="px-10 py-3 bg-red-600 text-black font-black uppercase text-[10px] tracking-widest hover:bg-red-500 transition shadow-lg shadow-red-900/40">Access Portal</a>
+            <a href="auth.html" class="px-10 py-3 bg-red-600 text-black font-black uppercase text-[10px] tracking-widest hover:bg-red-500 transition shadow-lg shadow-red-900/40">Access Portal</a>
             <a href="https://wa.me/916355824044" class="px-10 py-3 border border-red-600 text-red-500 font-black uppercase text-[10px] tracking-widest hover:bg-red-600 hover:text-white transition">Deploy Intelligence</a>
         </div>
     </header>
@@ -85,7 +84,6 @@
 
     <section id="terminal" class="container mx-auto px-6 py-20 border-t border-red-900/20">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
             <div class="space-y-6">
                 <h3 class="font-tech text-2xl font-black neon-text-red uppercase italic">Agency_Credentials</h3>
                 <div class="flex flex-wrap gap-4">
@@ -111,7 +109,6 @@
                     <p>> Status: <span class="animate-pulse">Active_Monitoring</span></p>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -153,7 +150,6 @@
             requestAnimationFrame(animate);
         }
 
-        // Terminal Auto-Type Animation
         const terminalContent = document.getElementById('terminal-content');
         const logs = [
             "> Capturing Data Packets...",
