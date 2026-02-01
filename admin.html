@@ -13,20 +13,27 @@
 </head>
 <body class="p-10">
     <header class="flex justify-between items-center mb-10 border-b border-red-900 pb-5">
-        <h1 style="font-family:'Orbitron'" class="text-3xl italic tracking-tighter">GOD_MODE_ACTIVE</h1>
+        <h1 style="font-family:'Orbitron'" class="text-3xl italic tracking-tighter shadow-red-600 shadow-sm">GOD_MODE_ACTIVE</h1>
         <button onclick="logout()" class="text-[10px] border border-red-600 px-4 py-1 uppercase">[Terminate_Session]</button>
     </header>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="admin-box"><h3 class="text-xs font-bold mb-4">USER_TRAFFIC</h3><p class="text-[10px] animate-pulse">> Monitoring Live Nodes...</p></div>
         <div class="admin-box"><h3 class="text-xs font-bold mb-4">SYSTEM_CONTROL</h3><button class="w-full py-2 bg-red-600 text-black text-[10px] font-black uppercase mt-4">Emergency_Kill_Switch</button></div>
-        <div class="admin-box"><h3 class="text-xs font-bold mb-4">REVENUE_STREAM</h3><div class="text-3xl font-black italic shadow-red-900 shadow-sm">₹0.00</div></div>
+        <div class="admin-box"><h3 class="text-xs font-bold mb-4">REVENUE_STREAM</h3><div class="text-3xl font-black italic">₹0.00</div></div>
     </div>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-        const auth = getAuth(initializeApp({ apiKey: "x", authDomain: "x", projectId: "x", storageBucket: "x", messagingSenderId: "x", appId: "1x" }));
+        
+        const firebaseConfig = { apiKey: "AIzaSyA9sXjrKKHry3acMvacLAEZShTiN0cO3OY",
+  authDomain: "websitedds-b59e2.firebaseapp.com",
+  projectId: "websitedds-b59e2",
+  storageBucket: "websitedds-b59e2.firebasestorage.app",
+  messagingSenderId: "163038706640",
+  appId: "1:163038706640:web:eb5b838e9255290e3d57d5" };
+        const auth = getAuth(initializeApp(firebaseConfig));
 
         onAuthStateChanged(auth, (user) => {
             if (!user || user.email !== "admin@nm.foundation") window.location.href = "./auth.html";
