@@ -1,65 +1,85 @@
-<script type="module">
-  // Firebase SDKs from CDN
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication | N&M Foundation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
+    <style>
+        :root { --neon-red: #ff0000; --dark-bg: #020202; }
+        body { background-color: var(--dark-bg); color: #fff; font-family: 'JetBrains Mono', monospace; }
+        .neon-border { border: 1px solid var(--neon-red); box-shadow: 0 0 15px rgba(255, 0, 0, 0.2); }
+        .input-f { background: rgba(255, 0, 0, 0.05); border: 1px solid rgba(255, 0, 0, 0.2); color: white; padding: 12px; width: 100%; outline: none; margin-bottom: 20px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-6">
+    <div class="max-w-md w-full neon-border p-10 bg-black/90 rounded relative">
+        <div class="text-center mb-10">
+            <h1 style="font-family:'Orbitron'" class="text-2xl font-black text-red-600 tracking-widest uppercase italic">Neural_Access</h1>
+            <p id="status-text" class="text-[8px] text-gray-500 mt-2 tracking-[0.4em] uppercase italic">System_Auth_Required</p>
+        </div>
 
-  // Your Firebase Configuration (Replace 'x' with your actual keys)
-  const firebaseConfig = {
-    apiKey: "AIzaSyA9sXjrKKHry3acMvacLAEZShTiN0cO3OY",
-  authDomain: "websitedds-b59e2.firebaseapp.com",
-  projectId: "websitedds-b59e2",
-  storageBucket: "websitedds-b59e2.firebasestorage.app",
-  messagingSenderId: "163038706640",
-  appId: "1:163038706640:web:eb5b838e9255290e3d57d5"
-  };
+        <div id="login-sec">
+            <input type="email" id="l-email" placeholder="OPERATOR_ID" class="input-f text-xs uppercase">
+            <input type="password" id="l-pass" placeholder="ACCESS_KEY" class="input-f text-xs uppercase">
+            <button onclick="handleLogin()" class="w-full bg-red-600 py-4 text-black font-black uppercase text-xs tracking-[0.4em] hover:bg-red-500 transition shadow-lg shadow-red-900/40">Initialize_Login</button>
+            <div class="flex justify-between text-[9px] text-gray-500 font-bold uppercase mt-6">
+                <span onclick="toggle('signup')" class="hover:text-red-500 cursor-pointer">Register_Node</span>
+                <span onclick="toggle('reset')" class="hover:text-red-500 cursor-pointer">Forgot_Key?</span>
+            </div>
+        </div>
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+        <div id="signup-sec" class="hidden">
+            <input type="email" id="s-email" placeholder="ASSIGN_EMAIL" class="input-f text-xs uppercase">
+            <input type="password" id="s-pass" placeholder="CREATE_KEY" class="input-f text-xs uppercase">
+            <button onclick="handleSignup()" class="w-full bg-red-600 py-4 text-black font-black uppercase text-xs tracking-[0.4em]">Generate_Identity</button>
+            <p class="text-center text-[9px] text-gray-500 mt-6 uppercase cursor-pointer" onclick="toggle('login')">Return</p>
+        </div>
 
-  // --- LOGIN FUNCTION ---
-  window.handleLogin = async () => {
-    const email = document.getElementById('l-email').value;
-    const pass = document.getElementById('l-pass').value;
-    const status = document.getElementById('status-text');
+        <div id="reset-sec" class="hidden">
+            <input type="email" id="r-email" placeholder="RECOVERY_EMAIL" class="input-f text-xs uppercase">
+            <button onclick="handleReset()" class="w-full bg-red-600 py-4 text-black font-black uppercase text-xs tracking-[0.4em]">Override_Request</button>
+            <p class="text-center text-[9px] text-gray-500 mt-6 uppercase cursor-pointer" onclick="toggle('login')">Return</p>
+        </div>
+    </div>
 
-    status.innerText = "AUTHENTICATING...";
-    try {
-      await signInWithEmailAndPassword(auth, email, pass);
-      status.innerText = "ACCESS_GRANTED";
-      // Role-based Redirection
-      if(email === "admin@nm.foundation") {
-          window.location.href = "admin.html";
-      } else {
-          window.location.href = "dashboard.html";
-      }
-    } catch (error) {
-      status.innerText = "AUTH_FAILED: " + error.code;
-      alert("Neural Override Error: " + error.message);
-    }
-  };
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-  // --- SIGNUP FUNCTION ---
-  window.handleSignup = async () => {
-    const email = document.querySelectorAll('#signup-sec input')[1].value;
-    const pass = document.querySelectorAll('#signup-sec input')[2].value;
-    try {
-      await createUserWithEmailAndPassword(auth, email, pass);
-      alert("Identity Registered! Now Login.");
-      location.reload();
-    } catch (error) {
-      alert("Registration Error: " + error.message);
-    }
-  };
+        const firebaseConfig = { apiKey: "x", authDomain: "x", projectId: "x", storageBucket: "x", messagingSenderId: "x", appId: "1x" }; // Put your real config here
+        const auth = getAuth(initializeApp(firebaseConfig));
 
-  // --- RESET PASSWORD FUNCTION ---
-  window.handleReset = async () => {
-    const email = document.querySelector('#reset-sec input').value;
-    try {
-      await sendPasswordResetEmail(auth, email);
-      alert("Override code sent to your neural mail (Check Inbox/Spam).");
-    } catch (error) {
-      alert("Reset Error: " + error.message);
-    }
-  };
-</script>
+        window.toggle = (id) => {
+            ['login-sec', 'signup-sec', 'reset-sec'].forEach(s => document.getElementById(s).classList.add('hidden'));
+            document.getElementById(id + '-sec').classList.remove('hidden');
+        };
+
+        window.handleLogin = async () => {
+            const email = document.getElementById('l-email').value;
+            const pass = document.getElementById('l-pass').value;
+            try {
+                await signInWithEmailAndPassword(auth, email, pass);
+                window.location.href = (email === "admin@nm.foundation") ? "./admin.html" : "./dashboard.html";
+            } catch (e) { alert("ERROR: " + e.message); }
+        };
+
+        window.handleSignup = async () => {
+            try {
+                await createUserWithEmailAndPassword(auth, document.getElementById('s-email').value, document.getElementById('s-pass').value);
+                alert("Node Registered. Login Now.");
+                location.reload();
+            } catch (e) { alert("ERROR: " + e.message); }
+        };
+
+        window.handleReset = async () => {
+            try {
+                await sendPasswordResetEmail(auth, document.getElementById('r-email').value);
+                alert("Reset Link Sent to Neural Mail.");
+            } catch (e) { alert("ERROR: " + e.message); }
+        };
+    </script>
+</body>
+</html>
