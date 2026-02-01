@@ -10,65 +10,25 @@
         :root { --neon-red: #ff0000; --neon-green: #00ff41; --dark-bg: #020202; }
         body { background-color: var(--dark-bg); color: #fff; font-family: 'JetBrains Mono', monospace; overflow-x: hidden; }
         h1, h2, h3, .font-tech { font-family: 'Orbitron', sans-serif; }
-
         .neon-text-red { text-shadow: 0 0 5px var(--neon-red); color: var(--neon-red); }
         .neon-text-green { text-shadow: 0 0 8px var(--neon-green); color: var(--neon-green); font-weight: 900; }
-        
         .neon-border-red { border: 1px solid rgba(255, 0, 0, 0.4); box-shadow: 0 0 10px rgba(255, 0, 0, 0.1); transition: 0.3s; }
         .neon-border-red:hover { border-color: var(--neon-red); box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); background: rgba(255, 0, 0, 0.05); }
-        
         .live-border { border: 2px solid var(--neon-green); box-shadow: 0 0 15px rgba(0, 255, 65, 0.2); animation: pulse-green 2s infinite; }
         @keyframes pulse-green { 0% { box-shadow: 0 0 5px rgba(0, 255, 65, 0.2); } 50% { box-shadow: 0 0 25px rgba(0, 255, 65, 0.6); } 100% { box-shadow: 0 0 5px rgba(0, 255, 65, 0.2); } }
-
         #canvas { position: fixed; top: 0; left: 0; z-index: -1; width: 100%; height: 100%; }
         .hud-line { width: 100%; height: 1px; background: rgba(255, 0, 0, 0.15); position: fixed; animation: moveHUD 6s linear infinite; pointer-events: none; z-index: 50; }
         @keyframes moveHUD { 0% { top: 0; } 100% { top: 100%; } }
-
         .glitch-hover:hover { animation: glitch 0.2s infinite; }
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            25% { transform: translate(-2px, 2px); color: #ff0000; }
-            50% { transform: translate(2px, -2px); color: #fff; }
-            100% { transform: translate(0); }
-        }
+        @keyframes glitch { 0% { transform: translate(0); } 25% { transform: translate(-2px, 2px); color: #ff0000; } 50% { transform: translate(2px, -2px); color: #fff; } 100% { transform: translate(0); } }
     </style>
 </head>
-<div id="diag-monitor" style="position:fixed; bottom:10px; left:10px; background:rgba(255,0,0,0.1); border:1px solid #ff0000; color:#ff0000; font-family:monospace; font-size:10px; padding:10px; z-index:9999; pointer-events:none;">
-    [SYSTEM_DIAGNOSTIC_ACTIVE]<br>
-    <span id="check-auth">> Checking auth.html...</span><br>
-    <span id="check-solutions">> Checking solutions.html...</span><br>
-    <span id="check-razor">> Checking Razorpay...</span>
-</div>
-
-<script>
-async function runDiagnostic() {
-    // Check auth.html
-    try {
-        const res1 = await fetch('./auth.html');
-        document.getElementById('check-auth').innerHTML = res1.ok ? 
-            '<span style="color:#00ff41">> [OK] auth.html Found</span>' : 
-            '<span style="color:#ff0000">> [ERROR] auth.html 404 - File Not Found</span>';
-    } catch(e) { document.getElementById('check-auth').innerText = '> [ERROR] Connection Failed'; }
-
-    // Check solutions.html
-    try {
-        const res2 = await fetch('./solutions.html');
-        document.getElementById('check-solutions').innerHTML = res2.ok ? 
-            '<span style="color:#00ff41">> [OK] solutions.html Found</span>' : 
-            '<span style="color:#ff0000">> [ERROR] solutions.html 404 - File Not Found</span>';
-    } catch(e) { document.getElementById('check-solutions').innerText = '> [ERROR] Connection Failed'; }
-
-    // Check Razorpay Script
-    if (window.Razorpay || document.querySelector('script[src*="razorpay"]')) {
-        document.getElementById('check-razor').innerHTML = '<span style="color:#00ff41">> [OK] Razorpay Module Loaded</span>';
-    } else {
-        document.getElementById('check-razor').innerHTML = '<span style="color:#ff0000">> [WARN] Razorpay Script Missing</span>';
-    }
-}
-runDiagnostic();
-</script>
-    
 <body>
+    <div id="diag-monitor" style="position:fixed; bottom:10px; left:10px; background:rgba(255,0,0,0.1); border:1px solid #ff0000; color:#ff0000; font-family:monospace; font-size:10px; padding:10px; z-index:9999; pointer-events:none;">
+        [SYSTEM_DIAGNOSTIC_ACTIVE]<br>
+        <span id="check-auth">> Checking auth.html...</span><br>
+        <span id="check-solutions">> Checking solutions.html...</span>
+    </div>
 
     <canvas id="canvas"></canvas>
     <div class="hud-line"></div>
@@ -79,7 +39,7 @@ runDiagnostic();
             <div class="hidden md:flex space-x-8 font-bold tracking-[0.3em] text-red-500/60 text-[10px]">
                 <a href="#protocols" class="hover:text-white transition uppercase">Protocols</a>
                 <a href="#terminal" class="hover:text-white transition uppercase">Core_Logs</a>
-                <a href="auth.html" class="neon-border-red px-4 py-1.5 rounded text-red-500 hover:bg-red-600 hover:text-white transition uppercase italic">Secure_Login</a>
+                <a href="./auth.html" class="neon-border-red px-4 py-1.5 rounded text-red-500 hover:bg-red-600 hover:text-white transition uppercase italic">Secure_Login</a>
             </div>
         </div>
     </nav>
@@ -89,9 +49,8 @@ runDiagnostic();
         <h2 class="text-4xl md:text-7xl font-black mb-10 tracking-tighter text-white uppercase italic leading-none">
             ELITE <span class="neon-text-red">CYBER</span> AUTHORITY.
         </h2>
-        
         <div class="flex flex-wrap justify-center gap-6">
-            <a href="auth.html" class="px-10 py-3 bg-red-600 text-black font-black uppercase text-[10px] tracking-widest hover:bg-red-500 transition shadow-lg shadow-red-900/40">Access Portal</a>
+            <a href="./auth.html" class="px-10 py-3 bg-red-600 text-black font-black uppercase text-[10px] tracking-widest hover:bg-red-500 transition shadow-lg shadow-red-900/40">Access Portal</a>
             <a href="https://wa.me/916355824044" class="px-10 py-3 border border-red-600 text-red-500 font-black uppercase text-[10px] tracking-widest hover:bg-red-600 hover:text-white transition">Deploy Intelligence</a>
         </div>
     </header>
@@ -117,97 +76,40 @@ runDiagnostic();
         </div>
     </section>
 
-    <section id="terminal" class="container mx-auto px-6 py-20 border-t border-red-900/20">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6">
-                <h3 class="font-tech text-2xl font-black neon-text-red uppercase italic">Agency_Credentials</h3>
-                <div class="flex flex-wrap gap-4">
-                    <div class="px-4 py-2 border border-red-600 text-[10px] font-bold text-red-500 uppercase tracking-widest bg-red-900/10 hover:bg-red-600 hover:text-white transition">OSINT_CERTIFIED</div>
-                    <div class="px-4 py-2 border border-red-600 text-[10px] font-bold text-red-500 uppercase tracking-widest bg-red-900/10 hover:bg-red-600 hover:text-white transition">FORENSICS_EXPERT</div>
-                    <div class="px-4 py-2 border border-green-600 text-[10px] font-bold text-green-500 uppercase tracking-widest bg-green-900/10">ETHICAL_HACKER</div>
-                </div>
-                <p class="text-gray-500 text-[11px] uppercase italic leading-relaxed">
-                    N&M Foundation operates as a strategic partner in digital warfare. Our protocols are optimized for corporate shielding and investigative forensics.
-                </p>
-            </div>
-
-            <div class="bg-black border border-red-600/30 p-5 rounded-lg shadow-2xl font-mono text-[10px] md:text-xs">
-                <div class="flex gap-2 mb-4 border-b border-red-900/30 pb-2">
-                    <div class="w-2 h-2 rounded-full bg-red-600"></div>
-                    <div class="w-2 h-2 rounded-full bg-gray-800"></div>
-                    <span class="text-red-500/50 uppercase tracking-widest px-2">Core_System_Monitor</span>
-                </div>
-                <div id="terminal-content" class="space-y-1 text-red-500/80 uppercase">
-                    <p>> Initializing Neural Link...</p>
-                    <p class="text-green-500 font-bold">> [SUCCESS] Link Established</p>
-                    <p>> Scanning Nodes: 192.168.1.1</p>
-                    <p>> Status: <span class="animate-pulse">Active_Monitoring</span></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 border-t border-red-900/30 bg-black text-center">
-        <p class="text-red-900/50 text-[9px] tracking-[1em] uppercase mb-4 font-bold italic">Confidentiality // Integrity // Availability</p>
-        <p class="text-[7px] text-gray-800 font-bold uppercase tracking-widest">© 2026 N&M Foundation // Root@Terminal ~$ Success</p>
-    </footer>
-
     <script>
+        // Diagnostic Engine
+        async function runDiag() {
+            const files = ['./auth.html', './solutions.html'];
+            const ids = ['check-auth', 'check-solutions'];
+            for(let i=0; i<files.length; i++) {
+                try {
+                    const res = await fetch(files[i]);
+                    document.getElementById(ids[i]).innerHTML = res.ok ? 
+                    `<span style="color:#00ff41">> [OK] ${files[i]} Found</span>` : 
+                    `<span style="color:#ff0000">> [ERR] ${files[i]} 404</span>`;
+                } catch(e) { document.getElementById(ids[i]).innerText = '> [ERR] Connection Fail'; }
+            }
+        }
+        runDiag();
+
+        // Canvas & Terminal Scripts
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
-
         function init() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             particles = [];
             for (let i = 0; i < 60; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    size: Math.random() * 1.5 + 0.5,
-                    speed: Math.random() * 0.4 + 0.1,
-                    alpha: Math.random()
-                });
+                particles.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, size: Math.random()*1.5+0.5, speed: Math.random()*0.4+0.1, alpha: Math.random() });
             }
         }
-
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                ctx.fillStyle = `rgba(255, 0, 0, ${p.alpha * 0.4})`;
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                ctx.fill();
-                p.y -= p.speed;
-                if (p.y < 0) p.y = canvas.height;
-            });
+            particles.forEach(p => { ctx.fillStyle=`rgba(255,0,0,${p.alpha*0.4})`; ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI*2); ctx.fill(); p.y-=p.speed; if(p.y<0) p.y=canvas.height; });
             requestAnimationFrame(animate);
         }
-
-        const terminalContent = document.getElementById('terminal-content');
-        const logs = [
-            "> Capturing Data Packets...",
-            "> Analyzing Metadata...",
-            "> Forensic Node: Online",
-            "> Threat Detected: Blocked",
-            "> System Integrity: Secure"
-        ];
-        let logIndex = 0;
-
-        function addLog() {
-            const p = document.createElement('p');
-            p.innerText = logs[logIndex];
-            p.classList.add('text-red-500/80');
-            terminalContent.appendChild(p);
-            if (terminalContent.children.length > 6) terminalContent.removeChild(terminalContent.children[0]);
-            logIndex = (logIndex + 1) % logs.length;
-        }
-        setInterval(addLog, 2000);
-
-        window.addEventListener('resize', init);
-        init();
-        animate();
+        init(); animate();
     </script>
 </body>
 </html>
