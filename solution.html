@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocols | N&M Foundation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --neon-red: #ff0000; --neon-green: #00ff41; --dark-bg: #020202; }
+        body { background-color: var(--dark-bg); color: #fff; font-family: 'JetBrains Mono', monospace; overflow-x: hidden; }
+        .font-tech { font-family: 'Orbitron', sans-serif; }
+
+        /* Tactical UI Elements */
+        .neon-text-red { text-shadow: 0 0 5px var(--neon-red); color: var(--neon-red); }
+        .neon-text-green { text-shadow: 0 0 8px var(--neon-green); color: var(--neon-green); }
+        
+        .protocol-card { border: 1px solid rgba(255, 0, 0, 0.2); background: rgba(5, 0, 0, 0.8); backdrop-filter: blur(10px); transition: 0.4s; }
+        .protocol-card:hover { border-color: var(--neon-red); box-shadow: 0 0 20px rgba(255, 0, 0, 0.2); transform: translateY(-5px); }
+
+        /* Secure Terminal Box */
+        .secure-terminal { border: 2px solid var(--neon-green); background: rgba(0, 255, 65, 0.05); }
+        
+        .scan-line { width: 100%; height: 1px; background: rgba(255, 0, 0, 0.1); position: fixed; top: 0; left: 0; animation: move 8s linear infinite; pointer-events: none; z-index: 100; }
+        @keyframes move { 0% { top: 0; } 100% { top: 100%; } }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #050000; }
+        ::-webkit-scrollbar-thumb { background: var(--neon-red); }
+    </style>
+</head>
+<body>
+
+    <div class="scan-line"></div>
+
+    <nav class="p-6 border-b border-red-900/20 bg-black/90 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-sm font-bold text-red-600 hover:text-white transition tracking-[0.3em]"> < [RETURN_HOME]</a>
+            <h1 class="font-tech text-lg md:text-xl font-black neon-text-red tracking-tighter uppercase">SECURE_PROTOCOL_ACCESS</h1>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <div class="space-y-8">
+                <div>
+                    <span class="text-[10px] text-green-500 font-bold tracking-[0.5em] uppercase border-b border-green-900 pb-1">Verified Enterprise Asset</span>
+                    <h2 class="font-tech text-4xl md:text-6xl font-black mt-4 italic uppercase">Forensics <br><span class="neon-text-red">Pro Toolkit</span></h2>
+                </div>
+
+                <div class="space-y-4">
+                    <p class="text-gray-500 text-xs md:text-sm leading-relaxed uppercase tracking-wider">
+                        Advanced automated intelligence suite designed for large-scale data recovery and proactive network defense.
+                    </p>
+                    <ul class="space-y-2 text-[10px] md:text-xs text-red-500/80 font-bold uppercase tracking-widest">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red-600 rounded-full"></span> Automated Intelligence (OSINT)</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red-600 rounded-full"></span> Deep Log Forensic Analysis</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-red-600 rounded-full"></span> Vulnerability Mapping Interface</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="secure-terminal p-8 md:p-12 rounded-sm relative overflow-hidden">
+                <div class="absolute top-2 right-4 text-[8px] text-green-500/50 font-mono italic">ENCRYPTION: AES-256</div>
+                
+                <div class="text-center">
+                    <h3 class="font-tech text-xl text-white mb-2 uppercase italic tracking-widest">Aquisition_Terminal</h3>
+                    <div class="h-[1px] w-full bg-green-900/50 mb-8"></div>
+                    
+                    <div class="mb-10">
+                        <span class="text-gray-500 text-[10px] uppercase tracking-widest">Total Investment</span>
+                        <div class="text-4xl md:text-5xl font-black neon-text-green mt-2 italic">₹1,499.00</div>
+                        <span class="text-[9px] text-green-500 uppercase font-bold tracking-[0.2em] mt-2 block">Live_Access_License</span>
+                    </div>
+
+                    <div class="flex justify-center mb-8">
+                        <form>
+                            <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_SAx6SCspcGVcpj" async> </script> 
+                        </form>
+                    </div>
+
+                    <p class="text-[8px] text-gray-600 uppercase tracking-[0.4em] font-bold">Secure Gateway Provided by N&M Foundation</p>
+                </div>
+            </div>
+
+        </div>
+
+        <section class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="protocol-card p-6 rounded-sm">
+                <h4 class="font-tech text-[10px] text-red-500 mb-4 uppercase tracking-widest">Protocol: 01_Intel</h4>
+                <p class="text-[11px] text-gray-400 leading-relaxed italic uppercase">Automated OSINT node for real-time reconnaissance and data harvesting.</p>
+            </div>
+            <div class="protocol-card p-6 rounded-sm">
+                <h4 class="font-tech text-[10px] text-red-500 mb-4 uppercase tracking-widest">Protocol: 02_Audit</h4>
+                <p class="text-[11px] text-gray-400 leading-relaxed italic uppercase">Forensic audit module to trace unauthorized system entry and log tampering.</p>
+            </div>
+            <div class="protocol-card p-6 rounded-sm">
+                <h4 class="font-tech text-[10px] text-red-500 mb-4 uppercase tracking-widest">Protocol: 03_Defense</h4>
+                <p class="text-[11px] text-gray-400 leading-relaxed italic uppercase">Proactive shielding algorithms for corporate digital infrastructure.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer class="mt-20 py-10 border-t border-red-900/20 text-center">
+        <p class="text-[8px] text-red-900/60 tracking-[1em] uppercase">Security Authorization Required // End_Of_Line</p>
+    </footer>
+
+</body>
+</html>
