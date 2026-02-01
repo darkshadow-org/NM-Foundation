@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Credentials | N&M Foundation</title>
+    <title>Credentials Vault | N&M Foundation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
     <style>
@@ -13,13 +13,33 @@
         
         .neon-text-red { text-shadow: 0 0 10px rgba(255, 0, 0, 0.8); color: #ff0000; }
         
-        /* Scan Line Animation */
-        @keyframes scan { 0% { top: 0%; } 100% { top: 100%; } }
-        .animate-scan { position: absolute; animation: scan 3s linear infinite; }
+        /* Certificate Card Glass Effect */
+        .cert-card {
+            background: rgba(10, 0, 0, 0.8);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            transition: 0.5s all ease;
+        }
+        .cert-card:hover {
+            border-color: var(--neon-red);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
+            transform: translateY(-10px);
+        }
 
-        /* Floating HUD elements */
-        .hud-dot { width: 4px; height: 4px; background: var(--neon-red); border-radius: 50%; box-shadow: 0 0 5px var(--neon-red); }
-        
+        /* Holographic Scan Animation */
+        @keyframes scan { 0% { top: 0%; } 100% { top: 100%; } }
+        .scan-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--neon-red);
+            box-shadow: 0 0 15px var(--neon-red);
+            z-index: 10;
+            opacity: 0;
+            animation: scan 3s linear infinite;
+        }
+        .cert-card:hover .scan-line { opacity: 1; }
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: #050000; }
@@ -29,86 +49,52 @@
 <body class="bg-[#020202]">
 
     <nav class="p-6 border-b border-red-900/20 bg-black/90 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="./dashboard.html" class="text-[10px] font-bold text-red-600 hover:text-white transition tracking-[0.3em] uppercase"> < [RETURN_TO_BASE]</a>
-            <h1 class="font-tech text-lg font-black neon-text-red tracking-widest uppercase italic">N&M_VAULT</h1>
+        <div class="container mx-auto flex justify-between items-center text-[10px]">
+            <a href="./dashboard.html" class="font-bold text-red-600 hover:text-white transition tracking-[0.3em] uppercase"> < [RETURN_TO_BASE]</a>
+            <h1 class="font-tech text-lg font-black neon-text-red tracking-widest uppercase italic">CREDENTIAL_VAULT</h1>
         </div>
     </nav>
 
-    <section id="cert-vault" class="container mx-auto px-6 py-20">
-        <div class="text-center mb-16 relative">
-            <h3 class="font-tech text-4xl md:text-5xl font-black neon-text-red uppercase italic tracking-tighter">Neural_Credentials</h3>
-            <div class="h-[2px] w-32 bg-red-600 mx-auto mt-4 shadow-[0_0_15px_#ff0000]"></div>
-            <p class="text-[9px] text-gray-500 uppercase tracking-[0.6em] mt-6">Authorized Forensic & Intelligence Assets // Verified_By_Root</p>
+    <section class="container mx-auto px-6 py-20">
+        <div class="text-center mb-20 relative">
+            <h3 class="font-tech text-4xl md:text-6xl font-black neon-text-red uppercase italic tracking-tighter">Verified_Neural_Assets</h3>
+            <p class="text-[10px] text-gray-500 uppercase tracking-[0.5em] mt-4">Authorized Credentials for Forensic Intelligence & Cyber Defense</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             
-            <div class="group relative p-[1px] bg-gradient-to-b from-red-600/50 to-transparent rounded-sm overflow-hidden transition-all duration-500 hover:scale-105">
-                <div class="bg-black/95 p-5 h-full relative">
-                    <div class="absolute inset-0 w-full h-[2px] bg-red-500/40 shadow-[0_0_15px_#ff0000] z-10 opacity-0 group-hover:opacity-100 animate-scan"></div>
-                    
-                    <div class="relative aspect-[4/3] mb-6 border border-red-900/30 overflow-hidden bg-red-950/10">
-                        <img src="https://via.placeholder.com/600x450/110000/ff0000?text=OSINT_CERTIFIED" alt="Cyber Cert" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
-                        <div class="absolute bottom-2 left-2 flex gap-1">
-                            <span class="hud-dot animate-pulse"></span>
-                            <span class="hud-dot animate-pulse delay-75"></span>
-                        </div>
-                    </div>
+            <div class="cert-card p-6 rounded-sm relative group">
+                <div class="scan-line"></div>
+                
+                <div class="relative aspect-[4/3] mb-6 border border-red-900/30 overflow-hidden bg-red-950/5">
+                    <img src="https://via.placeholder.com/600x450/110000/ff0000?text=OSINT_SPECIALIST" alt="Cert 01" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110">
+                    <div class="absolute top-2 right-2 text-[8px] text-red-600 bg-black/80 px-2 py-1 border border-red-600 font-bold uppercase">Asset_ID: 001</div>
+                </div>
 
-                    <div class="space-y-3">
-                        <h4 class="font-tech text-xs text-white uppercase tracking-widest group-hover:text-red-500 transition-colors">OSINT Intelligence Specialist</h4>
-                        <p class="text-[9px] text-gray-500 font-bold uppercase tracking-tighter italic leading-relaxed">Advanced reconnaissance and metadata analysis across global nodes.</p>
-                        <div class="flex justify-between items-center pt-4 border-t border-red-900/20">
-                            <span class="text-[8px] text-red-700 font-black">ID: NM-OS-2026</span>
-                            <a href="#" class="text-[8px] text-white hover:text-red-500 border border-white/20 px-3 py-1 uppercase transition">Verify_Doc</a>
-                        </div>
+                <div class="space-y-4">
+                    <h4 class="font-tech text-sm text-white uppercase tracking-wider group-hover:text-red-500 transition-colors">Advanced OSINT Analyst</h4>
+                    <div class="h-[1px] w-full bg-red-900/20"></div>
+                    <p class="text-[9px] text-gray-500 font-bold uppercase tracking-tighter italic leading-relaxed">Verification of deep web reconnaissance and advanced metadata forensics gathering.</p>
+                    <div class="flex justify-between items-center pt-2">
+                        <span class="text-[8px] text-red-900 font-black tracking-widest uppercase">Verified_Link: Active</span>
+                        <a href="#" class="text-[9px] text-red-500 border border-red-900 px-3 py-1 hover:bg-red-600 hover:text-black transition uppercase font-black">Decrypt_Full_File</a>
                     </div>
                 </div>
             </div>
 
-            <div class="group relative p-[1px] bg-gradient-to-b from-red-600/50 to-transparent rounded-sm overflow-hidden transition-all duration-500 hover:scale-105">
-                <div class="bg-black/95 p-5 h-full relative">
-                    <div class="absolute inset-0 w-full h-[2px] bg-red-500/40 shadow-[0_0_15px_#ff0000] z-10 opacity-0 group-hover:opacity-100 animate-scan"></div>
-                    
-                    <div class="relative aspect-[4/3] mb-6 border border-red-900/30 overflow-hidden bg-red-950/10">
-                        <img src="https://via.placeholder.com/600x450/110000/ff0000?text=FORENSICS_CERT" alt="Cyber Cert" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
-                        <div class="absolute bottom-2 left-2 flex gap-1">
-                            <span class="hud-dot animate-pulse"></span>
-                            <span class="hud-dot animate-pulse delay-75"></span>
-                        </div>
-                    </div>
-
-                    <div class="space-y-3">
-                        <h4 class="font-tech text-xs text-white uppercase tracking-widest group-hover:text-red-500 transition-colors">Digital Forensics Analyst</h4>
-                        <p class="text-[9px] text-gray-500 font-bold uppercase tracking-tighter italic leading-relaxed">Post-breach data recovery and intrusion tracing protocols.</p>
-                        <div class="flex justify-between items-center pt-4 border-t border-red-900/20">
-                            <span class="text-[8px] text-red-700 font-black">ID: NM-DF-2026</span>
-                            <a href="#" class="text-[8px] text-white hover:text-red-500 border border-white/20 px-3 py-1 uppercase transition">Verify_Doc</a>
-                        </div>
-                    </div>
+            <div class="cert-card p-6 rounded-sm relative group">
+                <div class="scan-line"></div>
+                <div class="relative aspect-[4/3] mb-6 border border-red-900/30 overflow-hidden bg-red-950/5">
+                    <img src="https://via.placeholder.com/600x450/110000/ff0000?text=FORENSICS_ANALYST" alt="Cert 02" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110">
+                    <div class="absolute top-2 right-2 text-[8px] text-red-600 bg-black/80 px-2 py-1 border border-red-600 font-bold uppercase">Asset_ID: 002</div>
                 </div>
-            </div>
-
-            <div class="group relative p-[1px] bg-gradient-to-b from-red-600/50 to-transparent rounded-sm overflow-hidden transition-all duration-500 hover:scale-105">
-                <div class="bg-black/95 p-5 h-full relative">
-                    <div class="absolute inset-0 w-full h-[2px] bg-red-500/40 shadow-[0_0_15px_#ff0000] z-10 opacity-0 group-hover:opacity-100 animate-scan"></div>
-                    
-                    <div class="relative aspect-[4/3] mb-6 border border-red-900/30 overflow-hidden bg-red-950/10">
-                        <img src="https://via.placeholder.com/600x450/110000/ff0000?text=DEFENSE_CERT" alt="Cyber Cert" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
-                        <div class="absolute bottom-2 left-2 flex gap-1">
-                            <span class="hud-dot animate-pulse"></span>
-                            <span class="hud-dot animate-pulse delay-75"></span>
-                        </div>
-                    </div>
-
-                    <div class="space-y-3">
-                        <h4 class="font-tech text-xs text-white uppercase tracking-widest group-hover:text-red-500 transition-colors">Neural Network Shielding</h4>
-                        <p class="text-[9px] text-gray-500 font-bold uppercase tracking-tighter italic leading-relaxed">Proactive defense against Zero-day exploits and SQL injections.</p>
-                        <div class="flex justify-between items-center pt-4 border-t border-red-900/20">
-                            <span class="text-[8px] text-red-700 font-black">ID: NM-NS-2026</span>
-                            <a href="#" class="text-[8px] text-white hover:text-red-500 border border-white/20 px-3 py-1 uppercase transition">Verify_Doc</a>
-                        </div>
+                <div class="space-y-4">
+                    <h4 class="font-tech text-sm text-white uppercase tracking-wider group-hover:text-red-500 transition-colors">Digital Forensics Professional</h4>
+                    <div class="h-[1px] w-full bg-red-900/20"></div>
+                    <p class="text-[9px] text-gray-500 font-bold uppercase tracking-tighter italic leading-relaxed">Certified in post-incident data recovery and system intrusion tracing.</p>
+                    <div class="flex justify-between items-center pt-2">
+                        <span class="text-[8px] text-red-900 font-black tracking-widest uppercase">Verified_Link: Active</span>
+                        <a href="#" class="text-[9px] text-red-500 border border-red-900 px-3 py-1 hover:bg-red-600 hover:text-black transition uppercase font-black">Decrypt_Full_File</a>
                     </div>
                 </div>
             </div>
@@ -116,8 +102,8 @@
         </div>
     </section>
 
-    <footer class="py-10 border-t border-red-900/20 text-center">
-        <p class="text-[8px] text-red-900/40 tracking-[1em] uppercase">Secured by N&M Intelligence Unit</p>
+    <footer class="mt-20 py-10 border-t border-red-900/20 text-center">
+        <p class="text-[8px] text-red-900/40 tracking-[1em] uppercase">Auth_Key_Required // Restricted_Vault</p>
     </footer>
 
 </body>
