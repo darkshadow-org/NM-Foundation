@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authentication | N&M Foundation</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <style>
         :root { --neon-red: #ff0000; --dark-bg: #020202; }
-        body { background-color: var(--dark-bg); color: #fff; font-family: 'JetBrains Mono', monospace; }
+        body { background-color: var(--dark-bg); color: #fff; font-family: monospace; }
         .neon-border { border: 1px solid var(--neon-red); box-shadow: 0 0 15px rgba(255, 0, 0, 0.2); }
         .input-f { background: rgba(255, 0, 0, 0.05); border: 1px solid rgba(255, 0, 0, 0.2); color: white; padding: 12px; width: 100%; outline: none; margin-bottom: 20px; }
         .hidden { display: none; }
@@ -16,45 +16,41 @@
 </head>
 <body class="flex items-center justify-center min-h-screen p-6">
     <div class="max-w-md w-full neon-border p-10 bg-black/90 rounded relative">
-        <div class="text-center mb-10">
-            <h1 style="font-family:'Orbitron'" class="text-2xl font-black text-red-600 tracking-widest uppercase italic">Neural_Access</h1>
-            <p id="status-text" class="text-[8px] text-gray-500 mt-2 tracking-[0.4em] uppercase italic">System_Auth_Required</p>
-        </div>
-
+        <h1 style="font-family:'Orbitron'" class="text-2xl text-red-600 text-center mb-8 uppercase italic">Neural_Access</h1>
+        
         <div id="login-sec">
             <input type="email" id="l-email" placeholder="OPERATOR_ID" class="input-f text-xs uppercase">
             <input type="password" id="l-pass" placeholder="ACCESS_KEY" class="input-f text-xs uppercase">
             <button onclick="handleLogin()" class="w-full bg-red-600 py-4 text-black font-black uppercase text-xs tracking-[0.4em] hover:bg-red-500 transition shadow-lg shadow-red-900/40">Initialize_Login</button>
-            <div class="flex justify-between text-[9px] text-gray-500 font-bold uppercase mt-6">
+            <div class="flex justify-between text-[9px] text-gray-500 mt-6 uppercase">
                 <span onclick="toggle('signup')" class="hover:text-red-500 cursor-pointer">Register_Node</span>
-                <span onclick="toggle('reset')" class="hover:text-red-500 cursor-pointer">Forgot_Key?</span>
             </div>
         </div>
 
         <div id="signup-sec" class="hidden">
             <input type="email" id="s-email" placeholder="ASSIGN_EMAIL" class="input-f text-xs uppercase">
             <input type="password" id="s-pass" placeholder="CREATE_KEY" class="input-f text-xs uppercase">
-            <button onclick="handleSignup()" class="w-full bg-red-600 py-4 text-black font-black uppercase text-xs tracking-[0.4em]">Generate_Identity</button>
-            <p class="text-center text-[9px] text-gray-500 mt-6 uppercase cursor-pointer" onclick="toggle('login')">Return</p>
-        </div>
-
-        <div id="reset-sec" class="hidden">
-            <input type="email" id="r-email" placeholder="RECOVERY_EMAIL" class="input-f text-xs uppercase">
-            <button onclick="handleReset()" class="w-full bg-red-600 py-4 text-black font-black uppercase text-xs tracking-[0.4em]">Override_Request</button>
-            <p class="text-center text-[9px] text-gray-500 mt-6 uppercase cursor-pointer" onclick="toggle('login')">Return</p>
+            <button onclick="handleSignup()" class="w-full bg-red-600 py-4 text-black font-black uppercase text-xs">Generate_Identity</button>
+            <p class="text-center text-[9px] text-gray-500 mt-6 cursor-pointer" onclick="toggle('login')">Return</p>
         </div>
     </div>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-        const firebaseConfig = { apiKey: "x", authDomain: "x", projectId: "x", storageBucket: "x", messagingSenderId: "x", appId: "1x" }; // Put your real config here
+        // REPLACE WITH YOUR REAL FIREBASE KEYS
+        const firebaseConfig = { apiKey: "AIzaSyA9sXjrKKHry3acMvacLAEZShTiN0cO3OY",
+  authDomain: "websitedds-b59e2.firebaseapp.com",
+  projectId: "websitedds-b59e2",
+  storageBucket: "websitedds-b59e2.firebasestorage.app",
+  messagingSenderId: "163038706640",
+  appId: "1:163038706640:web:eb5b838e9255290e3d57d5" };
         const auth = getAuth(initializeApp(firebaseConfig));
 
         window.toggle = (id) => {
-            ['login-sec', 'signup-sec', 'reset-sec'].forEach(s => document.getElementById(s).classList.add('hidden'));
-            document.getElementById(id + '-sec').classList.remove('hidden');
+            document.getElementById('login-sec').classList.toggle('hidden');
+            document.getElementById('signup-sec').classList.toggle('hidden');
         };
 
         window.handleLogin = async () => {
@@ -71,13 +67,6 @@
                 await createUserWithEmailAndPassword(auth, document.getElementById('s-email').value, document.getElementById('s-pass').value);
                 alert("Node Registered. Login Now.");
                 location.reload();
-            } catch (e) { alert("ERROR: " + e.message); }
-        };
-
-        window.handleReset = async () => {
-            try {
-                await sendPasswordResetEmail(auth, document.getElementById('r-email').value);
-                alert("Reset Link Sent to Neural Mail.");
             } catch (e) { alert("ERROR: " + e.message); }
         };
     </script>
