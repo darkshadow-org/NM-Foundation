@@ -3,122 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>N&M Foundation | Enterprise Cyber Security</title>
+    <title>N&M Foundation | Leading Cyber Security Agency</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body { background-color: #050505; color: #e5e7eb; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .agency-card { border: 1px solid #1f2937; background: #0a0a0a; transition: 0.4s; }
-        .agency-card:hover { border-color: #3b82f6; box-shadow: 0 0 30px rgba(59, 130, 246, 0.1); transform: translateY(-5px); }
-        .accent-text { color: #3b82f6; }
-        /* Smooth scaling for small devices */
-        @media (max-width: 640px) {
-            .hero-title { font-size: 2.5rem; line-height: 1; }
-        }
+        .hero-gradient { background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, rgba(5, 5, 5, 1) 70%); }
+        .glass-nav { background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .feature-card { background: #0a0a0a; border: 1px solid #1f2937; transition: 0.4s; }
+        .feature-card:hover { border-color: #3b82f6; transform: translateY(-10px); }
+        .cyber-btn { transition: 0.3s; position: relative; overflow: hidden; }
+        .cyber-btn:hover { box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
     </style>
 </head>
 <body>
 
-    <nav class="fixed top-0 w-full p-4 md:p-6 border-b border-gray-800 flex justify-between items-center bg-black/90 backdrop-blur-md z-50">
-        <h1 class="text-xl md:text-2xl font-black italic uppercase text-white tracking-tighter">N&M<span class="accent-text">_Foundation</span></h1>
-        <div class="flex space-x-3 md:space-x-8 text-[10px] md:text-xs font-bold tracking-widest text-gray-400">
-            <a href="#solutions" class="hover:text-blue-500 transition hidden sm:block">SOLUTIONS</a>
-            <a href="https://wa.me/916355824044" class="bg-blue-600 px-3 py-2 md:px-5 md:py-2.5 rounded text-white hover:bg-blue-700 transition uppercase shadow-lg shadow-blue-900/20">Contact Agency</a>
+    <nav class="fixed top-0 w-full p-5 z-50 glass-nav">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl md:text-2xl font-black italic tracking-tighter uppercase">N&M<span class="text-blue-500">_Foundation</span></h1>
+            <div class="hidden md:flex space-x-10 text-[10px] font-bold tracking-[0.2em] text-gray-400">
+                <a href="#services" class="hover:text-blue-500 transition">SERVICES</a>
+                <a href="#about" class="hover:text-blue-500 transition">ABOUT</a>
+                <a href="#contact" class="hover:text-blue-500 transition">CONTACT</a>
+            </div>
+            <a href="https://wa.me/916355824044" class="bg-blue-600 px-5 py-2 rounded text-[10px] font-bold text-white hover:bg-blue-700 transition uppercase tracking-widest">Client Portal</a>
         </div>
     </nav>
 
-    <header class="pt-32 pb-16 md:pt-48 md:pb-24 text-center px-6">
-        <h2 class="hero-title text-4xl md:text-6xl lg:text-7xl font-black mb-6 italic tracking-tighter text-white uppercase leading-none">
-            Securing Digital <span class="accent-text">Frontiers.</span>
-        </h2>
-        <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-lg leading-relaxed px-2">
-            N&M Foundation delivers world-class cyber defense, digital forensics, and enterprise-grade security intelligence for modern organizations.
-        </p>
-        <div class="mt-8 md:mt-12 flex flex-col sm:flex-row justify-center gap-4 px-10 sm:px-0">
-            <a href="#solutions" class="px-8 py-3.5 bg-white text-black font-extrabold rounded-md hover:bg-gray-200 transition text-sm uppercase tracking-wider">View Solutions</a>
-            <a href="#cases" class="px-8 py-3.5 border border-gray-700 rounded-md hover:bg-gray-900 transition text-white text-sm uppercase tracking-wider">Case Studies</a>
-        </div>
-    </header>
-
-    <section id="about" class="container mx-auto px-6 py-12 border-t border-gray-900">
-        <h3 class="text-lg md:text-xl mb-4 text-white font-bold underline decoration-blue-600 underline-offset-8 italic uppercase tracking-widest">./Mission_Statement</h3>
-        <p class="text-gray-400 leading-relaxed max-w-3xl text-xs md:text-base">
-            Our mission is to protect global enterprises from sophisticated cyber threats. N&M Foundation specializes in <span class="text-white font-semibold">Cyber Defense</span> and <span class="text-white font-semibold">Forensics Analysis</span>, ensuring your critical digital assets remain resilient.
-        </p>
-    </section>
-
-    <section id="solutions" class="container mx-auto px-6 py-16 md:py-24 border-t border-gray-900">
-        <div class="flex items-center gap-4 mb-10 md:mb-16">
-            <div class="h-1 w-8 md:w-12 bg-blue-600"></div>
-            <h3 class="text-2xl md:text-4xl font-black uppercase tracking-widest text-white">Solutions</h3>
-        </div>
-
-        <div class="max-w-md mx-auto agency-card p-8 md:p-12 rounded-3xl text-center">
-            <h3 class="text-xl md:text-2xl font-black text-white mb-2 uppercase tracking-tight">Forensics Pro Toolkit</h3>
-            <p class="text-[10px] md:text-xs text-blue-500 mb-8 italic font-black uppercase tracking-[0.2em]">Enterprise Edition</p>
-            
-            <div class="flex justify-center mb-8 scale-90 md:scale-100">
-                <form>
-                    <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_SAx6SCspcGVcpj" async> </script> 
-                </form>
-            </div>
-
-            <p class="text-[9px] text-gray-600 uppercase tracking-[0.3em] border-t border-gray-900 pt-6 font-bold">Secure Encrypted Gateway</p>
-        </div>
-    </section>
-
-    <section id="cases" class="container mx-auto px-6 py-16 md:py-24 border-t border-gray-900">
-        <div class="flex items-center gap-4 mb-10 md:mb-16">
-            <div class="h-1 w-8 md:w-12 bg-blue-600"></div>
-            <h3 class="text-2xl md:text-4xl font-black uppercase tracking-widest text-white">Archives</h3>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
-            <div class="agency-card p-6 md:p-10 rounded-2xl border-l-[6px] border-l-blue-600">
-                <h4 class="text-lg md:text-xl font-black mb-4 text-white uppercase tracking-tight">OSINT Automation</h4>
-                <p class="text-xs md:text-sm text-gray-400 mb-6 leading-relaxed">
-                    Automated intelligence extraction using <span class="text-blue-400 italic font-bold">theHarvester</span> and <span class="text-blue-400 italic font-bold">WHOIS</span> APIs to identify vulnerabilities.
-                </p>
-                <div class="flex gap-2">
-                    <span class="text-[9px] bg-blue-900/30 text-blue-400 px-3 py-1.5 rounded-full font-bold uppercase tracking-widest">Python</span>
-                    <span class="text-[9px] bg-blue-900/30 text-blue-400 px-3 py-1.5 rounded-full font-bold uppercase tracking-widest">Kali Linux</span>
-                </div>
-            </div>
-
-            <div class="agency-card p-6 md:p-10 rounded-2xl border-l-[6px] border-l-blue-600">
-                <h4 class="text-lg md:text-xl font-black mb-4 text-white uppercase tracking-tight">Log Forensics</h4>
-                <p class="text-xs md:text-sm text-gray-400 mb-6 leading-relaxed">
-                    Developed methodologies for critical system log analysis to recover digital evidence and conduct thorough security audits.
-                </p>
-                <div class="flex gap-2">
-                    <span class="text-[9px] bg-blue-900/30 text-blue-400 px-3 py-1.5 rounded-full font-bold uppercase tracking-widest">Forensics</span>
-                    <span class="text-[9px] bg-blue-900/30 text-blue-400 px-3 py-1.5 rounded-full font-bold uppercase tracking-widest">Audit</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="container mx-auto px-6 py-12 border-t border-gray-900 mt-10">
-        <div class="max-w-4xl mx-auto bg-red-950/20 border border-red-900/30 p-6 md:p-8 rounded-2xl">
-            <h4 class="text-red-500 font-black text-xs md:text-sm mb-4 uppercase tracking-[0.2em] flex items-center">
-                <span class="w-2 h-2 bg-red-500 rounded-full mr-3 animate-pulse"></span>
-                Legal Disclaimer & Ethical Use
-            </h4>
-            <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed italic">
-                N&M Foundation tools are strictly for educational and authorized security testing purposes. The Foundation accepts no liability for unauthorized use. We operate under strict digital defense guidelines.
+    <section class="min-h-screen flex items-center justify-center hero-gradient pt-20 px-6">
+        <div class="text-center max-w-5xl">
+            <span class="text-blue-500 font-bold text-[10px] tracking-[0.5em] uppercase mb-4 block animate-pulse">Enterprise Security Simplified</span>
+            <h2 class="text-5xl md:text-8xl font-black mb-8 italic tracking-tighter text-white leading-none">
+                ADVANCED <span class="text-blue-500">CYBER</span> DEFENSE.
+            </h2>
+            <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-xl leading-relaxed mb-12">
+                N&M Foundation is a premier security agency specializing in digital forensics, OSINT automation, and corporate infrastructure protection.
             </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="solutions.html" class="cyber-btn px-10 py-4 bg-white text-black font-black rounded uppercase text-xs tracking-widest">Explore Tools</a>
+                <a href="https://wa.me/916355824044" class="cyber-btn px-10 py-4 border border-gray-700 text-white font-black rounded uppercase text-xs tracking-widest hover:bg-gray-900">Hire Our Agency</a>
+            </div>
         </div>
     </section>
 
-    <footer class="py-12 md:py-20 text-center border-t border-gray-900 bg-black px-6">
-        <p class="font-bold text-gray-500 mb-4 text-xs md:text-sm tracking-widest uppercase">&copy; 2026 N&M Foundation | All Rights Reserved.</p>
-        <p class="text-[8px] md:text-[10px] tracking-[0.5em] uppercase text-gray-700 font-black flex justify-center gap-4 flex-wrap">
-            <span>Confidentiality</span>
-            <span class="text-blue-900">•</span>
-            <span>Integrity</span>
-            <span class="text-blue-900">•</span>
-            <span>Availability</span>
-        </p>
+    <section id="services" class="container mx-auto px-6 py-24">
+        <div class="text-center mb-20">
+            <h3 class="text-3xl font-black uppercase tracking-widest text-white italic">Core Expertise</h3>
+            <div class="h-1 w-20 bg-blue-600 mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="feature-card p-10 rounded-2xl">
+                <div class="w-12 h-12 bg-blue-600/10 rounded flex items-center justify-center mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-4 uppercase">Cyber Defense</h4>
+                <p class="text-xs text-gray-500 leading-relaxed italic">Proactive threat mitigation and real-time monitoring for large-scale enterprise networks.</p>
+            </div>
+
+            <div class="feature-card p-10 rounded-2xl">
+                <div class="w-12 h-12 bg-blue-600/10 rounded flex items-center justify-center mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-4 uppercase">Digital Forensics</h4>
+                <p class="text-xs text-gray-500 leading-relaxed italic">In-depth investigation of digital footprints and evidence recovery from compromised systems.</p>
+            </div>
+
+            <div class="feature-card p-10 rounded-2xl">
+                <div class="w-12 h-12 bg-blue-600/10 rounded flex items-center justify-center mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </div>
+                <h4 class="text-lg font-bold text-white mb-4 uppercase">OSINT Automation</h4>
+                <p class="text-xs text-gray-500 leading-relaxed italic">High-speed intelligence gathering and data analysis for proactive vulnerability assessments.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="py-20 border-t border-gray-900 bg-black text-center px-6">
+        <h3 class="text-xl font-black text-white italic mb-6">N&M FOUNDATION</h3>
+        <p class="text-gray-600 text-[10px] tracking-[0.5em] uppercase mb-10">Confidentiality • Integrity • Availability</p>
+        <div class="flex justify-center space-x-8 text-[10px] font-bold text-gray-500 tracking-widest uppercase">
+            <a href="https://wa.me/916355824044" class="hover:text-blue-500 transition">WhatsApp</a>
+            <a href="mailto:info@nmagency.com" class="hover:text-blue-500 transition">Email</a>
+            <a href="https://github.com/darkshadow-org/ds.org" class="hover:text-blue-500 transition text-white italic">GitHub</a>
+        </div>
+        <p class="mt-16 text-[9px] text-gray-800 font-bold tracking-tighter uppercase">© 2026 N&M Foundation | Strategic Cyber Intelligence</p>
     </footer>
 
 </body>
