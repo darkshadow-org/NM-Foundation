@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Control | N&M Foundation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
+    <style>
+        :root { --neon-red: #ff0000; --neon-green: #00ff41; --dark-bg: #020202; }
+        body { background-color: var(--dark-bg); color: #fff; font-family: 'JetBrains Mono', monospace; }
+        .font-tech { font-family: 'Orbitron', sans-serif; }
+        .neon-border { border: 1px solid var(--neon-red); box-shadow: 0 0 15px rgba(255, 0, 0, 0.2); }
+        .input-style { background: rgba(255, 0, 0, 0.05); border: 1px solid rgba(255, 0, 0, 0.3); color: white; padding: 12px; width: 100%; outline: none; transition: 0.3s; }
+        .input-style:focus { border-color: var(--neon-red); box-shadow: 0 0 10px rgba(255, 0, 0, 0.2); }
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-6">
+
+    <div class="max-w-md w-full neon-border p-8 bg-black/80 backdrop-blur-xl rounded-sm">
+        <div class="text-center mb-8">
+            <h1 class="font-tech text-2xl font-black neon-text-red tracking-widest uppercase italic">Neural_Access</h1>
+            <p id="auth-status" class="text-[9px] text-gray-500 mt-2 tracking-[0.3em] uppercase">Security Level: Level_4_Required</p>
+        </div>
+
+        <div id="login-form" class="space-y-6">
+            <div>
+                <label class="text-[10px] uppercase text-red-500 font-bold tracking-widest">Operator_ID</label>
+                <input type="email" placeholder="email@neural.link" class="input-style mt-1 text-sm">
+            </div>
+            <div>
+                <label class="text-[10px] uppercase text-red-500 font-bold tracking-widest">Access_Key</label>
+                <input type="password" placeholder="********" class="input-style mt-1 text-sm">
+            </div>
+            <button class="w-full bg-red-600 py-3 font-black text-black uppercase text-xs tracking-[0.3em] hover:bg-red-500 shadow-lg shadow-red-900/40">Initialize_Login</button>
+            
+            <div class="flex justify-between text-[10px] text-gray-500 font-bold uppercase tracking-tighter">
+                <a href="javascript:void(0)" onclick="toggleForm('signup')" class="hover:text-red-500">Create_Account</a>
+                <a href="javascript:void(0)" onclick="toggleForm('reset')" class="hover:text-red-500">Forgot_Key?</a>
+            </div>
+        </div>
+
+        <div id="signup-form" class="space-y-6 hidden text-white">
+            <div>
+                <label class="text-[10px] uppercase text-red-500 font-bold tracking-widest">Register_Full_Name</label>
+                <input type="text" placeholder="Operator Name" class="input-style mt-1 text-sm">
+            </div>
+            <div>
+                <label class="text-[10px] uppercase text-red-500 font-bold tracking-widest">Email_Assignment</label>
+                <input type="email" placeholder="email@neural.link" class="input-style mt-1 text-sm text-white">
+            </div>
+            <div>
+                <label class="text-[10px] uppercase text-red-500 font-bold tracking-widest">Define_Key</label>
+                <input type="password" placeholder="********" class="input-style mt-1 text-sm">
+            </div>
+            <button class="w-full bg-red-600 py-3 font-black text-black uppercase text-xs tracking-[0.3em] hover:bg-red-500">Generate_Profile</button>
+            <p class="text-center text-[10px] text-gray-500 uppercase font-bold tracking-widest cursor-pointer hover:text-white" onclick="toggleForm('login')">Return_to_Login</p>
+        </div>
+
+        <div id="reset-form" class="space-y-6 hidden">
+            <p class="text-[10px] text-gray-400 italic leading-relaxed mb-4">Neural link lost? Enter registered email to override access key.</p>
+            <div>
+                <label class="text-[10px] uppercase text-red-500 font-bold tracking-widest">Recovery_Email</label>
+                <input type="email" placeholder="email@neural.link" class="input-style mt-1 text-sm">
+            </div>
+            <button class="w-full bg-red-600 py-3 font-black text-black uppercase text-xs tracking-[0.3em] hover:bg-red-500">Override_Request</button>
+            <p class="text-center text-[10px] text-gray-500 uppercase font-bold tracking-widest cursor-pointer hover:text-white" onclick="toggleForm('login')">Back</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleForm(type) {
+            document.getElementById('login-form').classList.add('hidden');
+            document.getElementById('signup-form').classList.add('hidden');
+            document.getElementById('reset-form').classList.add('hidden');
+            
+            if(type === 'login') document.getElementById('login-form').classList.remove('hidden');
+            if(type === 'signup') document.getElementById('signup-form').classList.remove('hidden');
+            if(type === 'reset') document.getElementById('reset-form').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
