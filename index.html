@@ -3,92 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DarkShadow | Cyber Tools & Projects</title>
+    <title>N&M AGENCY | Enterprise Cyber Security Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #050505; color: #00ff41; font-family: 'Courier New', monospace; scroll-behavior: smooth; }
-        .cyber-border { border: 1px solid #00ff41; box-shadow: 0 0 10px rgba(0, 255, 65, 0.2); }
-        .cyber-border:hover { box-shadow: 0 0 20px #00ff41; transform: translateY(-5px); transition: 0.3s; }
-        .terminal-container { background: #000; border: 1px solid #00ff41; border-radius: 5px; overflow: hidden; }
-        .terminal-header { background: #1a1a1a; padding: 5px 10px; display: flex; gap: 6px; }
+        body { background-color: #050505; color: #e5e7eb; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .agency-border { border: 1px solid #1f2937; transition: 0.4s; background: #0a0a0a; }
+        .agency-border:hover { border-color: #3b82f6; box-shadow: 0 0 30px rgba(59, 130, 246, 0.1); }
+        .accent-text { color: #3b82f6; } /* Professional Blue for Trust */
     </style>
 </head>
 <body>
 
-    <nav class="fixed top-0 w-full p-5 border-b border-green-900 flex justify-between items-center bg-black z-50">
-        <h1 class="text-xl font-bold tracking-widest uppercase text-white">DarkShadow<span class="animate-pulse">_</span></h1>
-        <div class="space-x-4 text-sm">
-            <a href="#about" class="hover:text-white">ABOUT</a>
-            <a href="#tools" class="hover:text-white">TOOLS</a>
-            <a href="https://github.com/darkshadow-org" target="_blank" class="hover:text-white">GITHUB</a>
+    <nav class="fixed top-0 w-full p-6 border-b border-gray-800 flex justify-between items-center bg-black/90 backdrop-blur-md z-50">
+        <h1 class="text-2xl font-black tracking-tighter uppercase italic">N&M<span class="accent-text">_AGENCY</span></h1>
+        <div class="hidden md:flex space-x-8 text-xs font-bold tracking-widest">
+            <a href="#services" class="hover:text-blue-500 transition">SERVICES</a>
+            <a href="#solutions" class="hover:text-blue-500 transition">SOLUTIONS</a>
+            <a href="https://wa.me/916355824044" class="bg-blue-600 px-4 py-2 rounded text-white hover:bg-blue-700">GET A QUOTE</a>
         </div>
     </nav>
 
-    <header class="pt-32 pb-16 text-center">
-        <h2 class="text-4xl md:text-6xl font-bold text-white mb-2">IT PROJECTS & CYBER TOOLS</h2>
-        <p class="text-green-700 italic">"Security is an illusion, anonymity is a choice."</p>
+    <header class="pt-48 pb-24 text-center px-4">
+        <h2 class="text-5xl md:text-7xl font-bold mb-6">Securing Digital <span class="accent-text">Frontiers.</span></h2>
+        <p class="text-gray-400 max-w-2xl mx-auto text-lg">N&M Agency provides world-class cyber defense, forensics analysis, and enterprise-grade security tools for modern businesses.</p>
+        <div class="mt-10 flex justify-center gap-4">
+            <a href="#services" class="px-8 py-3 bg-white text-black font-bold rounded">Explore Services</a>
+            <a href="#contact" class="px-8 py-3 border border-gray-700 rounded hover:bg-gray-900">Contact Us</a>
+        </div>
     </header>
 
-    <section class="container mx-auto px-6 mb-16">
-        <div class="terminal-container">
-            <div class="terminal-header text-xs">
-                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-                <span class="ml-2 text-gray-500">kali-linux — bash</span>
-            </div>
-            <div id="terminal-text" class="p-4 min-h-[100px] text-sm md:text-base"></div>
+    <section id="services" class="container mx-auto px-6 py-20">
+        <div class="flex items-center gap-4 mb-12">
+            <div class="h-1 w-12 bg-blue-600"></div>
+            <h3 class="text-3xl font-bold uppercase tracking-widest">Our Expertise</h3>
         </div>
-    </section>
-
-    <section id="about" class="container mx-auto px-6 py-10">
-        <h3 class="text-2xl mb-4 text-white font-bold">./Whoami</h3>
-        <p class="text-gray-400 leading-relaxed max-w-3xl">
-            Main ek Cyber Security enthusiast hoon, jo <span class="text-green-500 font-bold">Cyber Defense aur Forensics Analysis</span> mein specialize kar raha hoon. 
-            Mera kaam Kali Linux environment mein OSINT tools aur digital forensics investigation ko automate karna hai.
-        </p>
-    </section>
-
-    <section id="tools" class="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-2 gap-10">
         
-        <div class="cyber-border p-6 bg-black rounded">
-            <span class="text-xs text-green-500 border border-green-500 px-2 py-0.5 rounded">PUBLIC REPO</span>
-            <h3 class="text-white text-xl font-bold mt-3">Free OSINT Toolkit</h3>
-            <p class="text-gray-500 my-4 text-sm">Automated scripts using WHOIS and theHarvester for rapid info gathering.</p>
-            <a href="https://github.com/darkshadow-org/ds.org" class="block text-center py-2 border border-green-500 hover:bg-green-500 hover:text-black font-bold">VIEW ON GITHUB</a>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="agency-border p-8 rounded-xl">
+                <h4 class="text-xl font-bold mb-4 accent-text underline">Cyber Defense</h4>
+                <p class="text-sm text-gray-400">Threat detection and incident response strategies designed for corporate infrastructures.</p>
+            </div>
+            <div class="agency-border p-8 rounded-xl">
+                <h4 class="text-xl font-bold mb-4 accent-text underline">Forensics Analysis</h4>
+                <p class="text-sm text-gray-400">Deep-dive digital investigations and data recovery to secure critical business assets.</p>
+            </div>
+            <div class="agency-border p-8 rounded-xl">
+                <h4 class="text-xl font-bold mb-4 accent-text underline">OSINT Solutions</h4>
+                <p class="text-sm text-gray-400">Advanced information gathering and vulnerability assessment for proactive security.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="cyber-border p-6 bg-black rounded border-yellow-600">
-            <span class="text-xs text-yellow-500 border border-yellow-500 px-2 py-0.5 rounded">EXCLUSIVE CONTENT</span>
-            <h3 class="text-white text-xl font-bold mt-3 italic">Forensics Investigation Pro</h3>
-            <p class="text-gray-500 my-4 text-sm">Advanced forensic log analysis tools and data recovery scripts for investigators.</p>
-            <a href="https://wa.me/916355824044?text=Hi%20DarkShadow,%20I%20want%20to%20buy%20the%20Exclusive%20Forensics%20Kit" 
-               class="block text-center py-2 bg-yellow-600 text-black font-bold hover:bg-yellow-400 transition-colors">
-               CONTACT TO BUY
+    <section id="solutions" class="bg-blue-600/5 py-20 border-y border-gray-900">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-3xl font-bold mb-8">Ready to Secure Your Enterprise?</h3>
+            <p class="mb-10 text-gray-400">Access our exclusive forensic toolkits or hire our specialists for custom security audits.</p>
+            <a href="https://wa.me/916355824044?text=Hi%20N&M%20Agency,%20I%20am%20interested%20in%20your%20security%20solutions." 
+               class="inline-block bg-blue-600 text-white px-10 py-4 font-bold rounded-full hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] transition">
+               CONNECT WITH AN EXPERT
             </a>
         </div>
-
     </section>
 
-    <footer class="mt-20 py-10 border-t border-green-900 text-center text-xs text-gray-600">
-        ROOT@DARKSHADOW-ORG ~$ EXIT_SUCCESS
+    <footer class="py-12 text-center text-sm text-gray-600">
+        <p>&copy; 2026 N&M AGENCY | All Rights Reserved.</p>
+        <p class="mt-2 text-[10px] tracking-[4px] uppercase">Confidentiality • Integrity • Availability</p>
     </footer>
 
-    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-    <script>
-        var app = document.getElementById('terminal-text');
-        var typewriter = new Typewriter(app, { loop: true, delay: 40 });
-
-        typewriter
-            .typeString('root@darkshadow:~$ <span class="text-white">whois paruluniversity.ac.in</span>')
-            .pauseFor(1500)
-            .deleteAll()
-            .typeString('root@darkshadow:~$ <span class="text-white">theHarvester -d target.com -b crtsh</span>')
-            .pauseFor(1500)
-            .deleteAll()
-            .typeString('root@darkshadow:~$ <span class="text-white">python3 forensics_tool.py --analyze</span>')
-            .pauseFor(2000)
-            .start();
-    </script>
 </body>
 </html>
