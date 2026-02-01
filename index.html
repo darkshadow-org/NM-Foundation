@@ -7,82 +7,80 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
     <style>
-        :root { --neon-red: #ff0000; --dark-bg: #030000; }
+        :root { --neon-red: #ff0000; --neon-green: #00ff41; --dark-bg: #020202; }
         body { background-color: var(--dark-bg); color: #fff; font-family: 'JetBrains Mono', monospace; overflow-x: hidden; }
         h1, h2, h3, .font-tech { font-family: 'Orbitron', sans-serif; }
 
-        /* Neon Glow Effects */
-        .neon-text { text-shadow: 0 0 10px var(--neon-red), 0 0 20px var(--neon-red); color: var(--neon-red); }
-        .neon-border { border: 1px solid var(--neon-red); box-shadow: 0 0 15px rgba(255, 0, 0, 0.2); }
-        .neon-border:hover { box-shadow: 0 0 30px rgba(255, 0, 0, 0.5); border-color: #ff4d4d; transition: 0.5s; }
+        /* Sharp Neon Effects (Reduced Blur) */
+        .neon-text-red { text-shadow: 0 0 5px var(--neon-red); color: var(--neon-red); }
+        .neon-text-green { text-shadow: 0 0 8px var(--neon-green); color: var(--neon-green); font-weight: 900; }
+        
+        .neon-border-red { border: 1px solid rgba(255, 0, 0, 0.4); box-shadow: 0 0 10px rgba(255, 0, 0, 0.1); }
+        .neon-border-red:hover { border-color: var(--neon-red); box-shadow: 0 0 15px rgba(255, 0, 0, 0.3); transition: 0.3s; }
+        
+        /* Green Live Highlight */
+        .live-border { border: 2px solid var(--neon-green); box-shadow: 0 0 15px rgba(0, 255, 65, 0.2); animation: pulse-green 2s infinite; }
+        @keyframes pulse-green { 0% { box-shadow: 0 0 5px rgba(0, 255, 65, 0.2); } 50% { box-shadow: 0 0 20px rgba(0, 255, 65, 0.5); } 100% { box-shadow: 0 0 5px rgba(0, 255, 65, 0.2); } }
 
-        /* Background Particle Canvas */
-        #canvas { position: fixed; top: 0; left: 0; z-index: -1; width: 100%; height: 100%; background: #050000; }
+        #canvas { position: fixed; top: 0; left: 0; z-index: -1; width: 100%; height: 100%; }
 
-        /* Scanning Animation */
-        .scan-line { width: 100%; height: 2px; background: rgba(255, 0, 0, 0.3); position: absolute; top: 0; left: 0; animation: scan 4s linear infinite; z-index: 10; pointer-events: none; }
-        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
-
-        .glitch:hover { animation: glitch 0.3s cubic-bezier(.25,.46,.45,.94) both infinite; }
-        @keyframes glitch { 0% { transform: translate(0); } 20% { transform: translate(-2px, 2px); } 40% { transform: translate(-2px, -2px); } 60% { transform: translate(2px, 2px); } 80% { transform: translate(2px, -2px); } 100% { transform: translate(0); } }
+        /* Scanning HUD Effect */
+        .hud-line { width: 100%; height: 1px; background: rgba(255, 0, 0, 0.15); position: fixed; animation: moveHUD 6s linear infinite; pointer-events: none; z-index: 50; }
+        @keyframes moveHUD { 0% { top: 0; } 100% { top: 100%; } }
     </style>
 </head>
 <body>
 
     <canvas id="canvas"></canvas>
-    <div class="scan-line"></div>
+    <div class="hud-line"></div>
 
-    <nav class="fixed top-0 w-full p-6 z-50 border-b border-red-900/30 bg-black/80 backdrop-blur-lg">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-xl md:text-2xl font-black italic tracking-widest neon-text glitch uppercase">N&M_FOUNDATION</h1>
-            <div class="hidden md:flex space-x-10 text-[10px] font-bold tracking-[0.3em] text-red-500/70">
-                <a href="#services" class="hover:text-white transition uppercase">Protocols</a>
-                <a href="#stats" class="hover:text-white transition uppercase">Archives</a>
-                <a href="https://wa.me/916355824044" class="neon-border px-6 py-2 rounded-sm bg-red-950/20 text-red-500 hover:bg-red-600 hover:text-white transition">LINK_ESTABLISHED</a>
+    <nav class="fixed top-0 w-full p-6 z-50 border-b border-red-900/20 bg-black/90">
+        <div class="container mx-auto flex justify-between items-center text-[10px] md:text-xs">
+            <h1 class="text-xl font-black tracking-widest neon-text-red uppercase">N&M_FOUNDATION</h1>
+            <div class="hidden md:flex space-x-8 font-bold tracking-[0.3em] text-red-500/60 uppercase">
+                <a href="#solutions" class="hover:text-white transition">Protocols</a>
+                <a href="#stats" class="hover:text-white transition">System_Log</a>
+                <a href="https://wa.me/916355824044" class="neon-border-red px-4 py-1.5 rounded bg-red-950/10 text-red-500 hover:bg-red-600 hover:text-white">LINK_SECURE</a>
             </div>
         </div>
     </nav>
 
-    <header class="min-h-screen flex items-center justify-center px-6 pt-20">
-        <div class="text-center">
-            <div class="mb-6 inline-block px-4 py-1 border border-red-600 text-[9px] uppercase tracking-[0.6em] text-red-500 font-bold bg-red-600/10">Neural Interface: Online</div>
-            <h2 class="text-5xl md:text-8xl font-black mb-8 italic tracking-tighter text-white leading-none uppercase">
-                ELITE <span class="neon-text">CYBER</span> AUTHORITY.
-            </h2>
-            <p class="text-gray-400 max-w-2xl mx-auto text-xs md:text-lg leading-relaxed mb-12 uppercase tracking-widest font-light">
-                Neural Defense // Forensics Analysis // AI Threat Mitigation
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-8">
-                <a href="solutions.html" class="px-12 py-4 bg-red-600 text-black font-black uppercase text-xs tracking-widest hover:bg-red-700 transition shadow-[0_0_25px_rgba(255,0,0,0.5)]">Enter Portal</a>
-                <a href="https://wa.me/916355824044" class="px-12 py-4 border border-red-600 text-red-500 font-black uppercase text-xs tracking-widest hover:bg-red-600 hover:text-white transition">Contact Core</a>
-            </div>
+    <header class="min-h-screen flex flex-col items-center justify-center px-6 text-center">
+        <div class="mb-4 inline-block px-3 py-1 border border-red-900/50 text-[8px] uppercase tracking-[0.8em] text-red-600 font-bold bg-red-950/5">System Initialization: 100%</div>
+        <h2 class="text-4xl md:text-7xl font-black mb-10 tracking-tighter text-white uppercase italic leading-none">
+            ELITE <span class="neon-text-red">CYBER</span> AUTHORITY.
+        </h2>
+        
+        <div class="flex flex-wrap justify-center gap-4 md:gap-8">
+            <a href="solutions.html" class="px-10 py-3 bg-red-600 text-black font-black uppercase text-[10px] tracking-widest hover:bg-red-500 transition shadow-lg shadow-red-900/30">Enter Portal</a>
+            <a href="https://wa.me/916355824044" class="px-10 py-3 border border-red-600 text-red-500 font-black uppercase text-[10px] tracking-widest hover:bg-red-600 hover:text-white transition">Contact Core</a>
         </div>
     </header>
 
-    <section id="stats" class="container mx-auto px-6 py-20">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="neon-border p-8 rounded-sm bg-black/40 text-center">
-                <div class="text-3xl md:text-5xl font-black neon-text mb-2 italic">50+</div>
-                <div class="text-[8px] uppercase font-bold text-gray-500 tracking-[0.4em]">Audits_Run</div>
+    <section id="stats" class="container mx-auto px-6 pb-32">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="neon-border-red p-8 bg-black/60 rounded backdrop-blur-sm text-center">
+                <div class="text-3xl font-black neon-text-red mb-1">50+</div>
+                <div class="text-[8px] uppercase font-bold text-gray-600 tracking-[0.4em]">Audits_Run</div>
             </div>
-            <div class="neon-border p-8 rounded-sm bg-black/40 text-center border-red-500/50">
-                <div class="text-3xl md:text-5xl font-black neon-text mb-2 italic">120+</div>
-                <div class="text-[8px] uppercase font-bold text-gray-500 tracking-[0.4em]">Nodes_Deployed</div>
+            <div class="neon-border-red p-8 bg-black/60 rounded backdrop-blur-sm text-center">
+                <div class="text-3xl font-black neon-text-red mb-1">120+</div>
+                <div class="text-[8px] uppercase font-bold text-gray-600 tracking-[0.4em]">Nodes_Active</div>
             </div>
-            <div class="neon-border p-8 rounded-sm bg-black/40 text-center">
-                <div class="text-3xl md:text-5xl font-black neon-text mb-2 italic">100%</div>
-                <div class="text-[8px] uppercase font-bold text-gray-500 tracking-[0.4em]">Integrity_Check</div>
+            <div class="neon-border-red p-8 bg-black/60 rounded backdrop-blur-sm text-center">
+                <div class="text-3xl font-black neon-text-red mb-1">100%</div>
+                <div class="text-[8px] uppercase font-bold text-gray-600 tracking-[0.4em]">Integrity</div>
             </div>
-            <div class="neon-border p-8 rounded-sm bg-black/40 text-center">
-                <div class="text-3xl md:text-5xl font-black neon-text mb-2 italic text-green-500 shadow-green-500">LIVE</div>
-                <div class="text-[8px] uppercase font-bold text-gray-500 tracking-[0.4em]">System_Status</div>
+            <div class="live-border p-8 bg-black/80 rounded text-center">
+                <div class="text-3xl font-black neon-text-green mb-1 uppercase italic">LIVE</div>
+                <div class="text-[8px] uppercase font-bold text-green-500/70 tracking-[0.4em]">System_Status</div>
             </div>
         </div>
     </section>
 
-    <footer class="py-20 border-t border-red-900/50 bg-black text-center px-6">
-        <p class="text-red-900 text-[10px] tracking-[0.8em] uppercase mb-10 font-black">Confidentiality // Integrity // Availability</p>
-        <p class="mt-4 text-[8px] text-gray-700 font-bold uppercase">© 2026 N&M Foundation // Root@Neural_Link ~$ Exit_Success</p>
+    <footer class="py-12 border-t border-red-900/30 bg-black text-center">
+        <p class="text-red-900/50 text-[9px] tracking-[1em] uppercase mb-4">Confidentiality // Integrity // Availability</p>
+        <p class="text-[7px] text-gray-800 font-bold uppercase tracking-widest">© 2026 N&M Foundation // Root@Terminal ~$ Success</p>
     </footer>
 
     <script>
@@ -93,13 +91,14 @@
         function init() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            for (let i = 0; i < 100; i++) {
+            particles = [];
+            for (let i = 0; i < 80; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
-                    size: Math.random() * 2,
-                    speed: Math.random() * 0.5 + 0.2,
-                    opacity: Math.random()
+                    size: Math.random() * 1.5 + 0.5,
+                    speed: Math.random() * 0.4 + 0.1,
+                    alpha: Math.random()
                 });
             }
         }
@@ -107,27 +106,20 @@
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             particles.forEach(p => {
-                ctx.fillStyle = `rgba(255, 0, 0, ${p.opacity})`;
+                ctx.fillStyle = `rgba(255, 0, 0, ${p.alpha * 0.5})`;
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
                 ctx.fill();
                 
                 p.y -= p.speed;
-                p.opacity = Math.sin(Date.now() * 0.001 + p.x) * 0.5 + 0.5; // Blinking effect
-                
                 if (p.y < 0) p.y = canvas.height;
             });
             requestAnimationFrame(animate);
         }
 
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-
+        window.addEventListener('resize', init);
         init();
         animate();
     </script>
-
 </body>
 </html>
