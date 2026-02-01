@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOD MODE | N&M FOUNDATION</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body { background: #050000; color: #ff0000; font-family: 'JetBrains Mono', monospace; }
+        .admin-card { border: 1px solid #330000; background: #0a0000; padding: 20px; }
+        .god-text { text-shadow: 0 0 10px #ff0000; }
+        .kill-btn { background: #ff0000; color: black; border-radius: 2px; }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+    <header class="flex justify-between items-center mb-10 border-b border-red-900 pb-5">
+        <h1 style="font-family: 'Orbitron';" class="text-3xl god-text italic">GOD_MODE_ACTIVE</h1>
+        <div class="text-right">
+            <p class="text-[10px] uppercase">Welcome, Root_Admin</p>
+            <a href="index.html" class="text-[8px] text-gray-500 hover:text-white uppercase">[Term_Session]</a>
+        </div>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="admin-card">
+            <h3 class="text-xs font-bold mb-4 border-b border-red-900 pb-2">LIVE_TRAFFIC_MONITOR</h3>
+            <div class="space-y-2 text-[10px]">
+                <p>> IP: 103.21.XX.XX - [DASHBOARD]</p>
+                <p>> IP: 45.12.XX.XX - [CHECKOUT]</p>
+                <p class="animate-pulse">> STATUS: SCANNING_ACTIVE...</p>
+            </div>
+        </div>
+
+        <div class="admin-card">
+            <h3 class="text-xs font-bold mb-4 border-b border-red-900 pb-2">GLOBAL_OVERRIDE</h3>
+            <div class="space-y-4">
+                <button class="w-full py-2 kill-btn text-[10px] font-black uppercase">Kill_All_User_Sessions</button>
+                <button class="w-full py-2 border border-red-600 text-[10px] font-black uppercase">Lock_Payment_Gateway</button>
+                <button class="w-full py-2 border border-red-600 text-[10px] font-black uppercase text-green-500 border-green-900">Deploy_Maintenance_Mode</button>
+            </div>
+        </div>
+
+        <div class="admin-card">
+            <h3 class="text-xs font-bold mb-4 border-b border-red-900 pb-2">REVENUE_INTEL</h3>
+            <div class="text-4xl font-black mb-2 italic god-text">₹4,497.00</div>
+            <p class="text-[9px] text-gray-600 uppercase">3 Enterprise Sales (Last 24h)</p>
+        </div>
+    </div>
+</body>
+</html>
