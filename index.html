@@ -3,107 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>N&M Foundation | Strategic Cyber Intelligence</title>
+    <title>N&M Foundation | Neural Cyber Defense</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #050505; color: #e5e7eb; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .glass-nav { background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-        .feature-card { background: #0a0a0a; border: 1px solid #1f2937; transition: 0.4s; }
-        .feature-card:hover { border-color: #3b82f6; transform: translateY(-5px); }
-        .review-card { background: linear-gradient(145deg, #0f0f0f, #050505); border: 1px solid #1a1a1a; }
-        .accent-text { color: #3b82f6; }
+        :root { --neon-red: #ff0000; --dark-bg: #030000; }
+        body { background-color: var(--dark-bg); color: #fff; font-family: 'JetBrains Mono', monospace; overflow-x: hidden; }
+        h1, h2, h3, .font-tech { font-family: 'Orbitron', sans-serif; }
+
+        /* Neon Glow Effects */
+        .neon-text { text-shadow: 0 0 10px var(--neon-red), 0 0 20px var(--neon-red); color: var(--neon-red); }
+        .neon-border { border: 1px solid var(--neon-red); box-shadow: 0 0 15px rgba(255, 0, 0, 0.2); }
+        .neon-border:hover { box-shadow: 0 0 30px rgba(255, 0, 0, 0.5); border-color: #ff4d4d; transition: 0.5s; }
+
+        /* Background Particle Canvas */
+        #canvas { position: fixed; top: 0; left: 0; z-index: -1; width: 100%; height: 100%; background: #050000; }
+
+        /* Scanning Animation */
+        .scan-line { width: 100%; height: 2px; background: rgba(255, 0, 0, 0.3); position: absolute; top: 0; left: 0; animation: scan 4s linear infinite; z-index: 10; pointer-events: none; }
+        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+
+        .glitch:hover { animation: glitch 0.3s cubic-bezier(.25,.46,.45,.94) both infinite; }
+        @keyframes glitch { 0% { transform: translate(0); } 20% { transform: translate(-2px, 2px); } 40% { transform: translate(-2px, -2px); } 60% { transform: translate(2px, 2px); } 80% { transform: translate(2px, -2px); } 100% { transform: translate(0); } }
     </style>
 </head>
 <body>
 
-    <nav class="fixed top-0 w-full p-5 z-50 glass-nav">
+    <canvas id="canvas"></canvas>
+    <div class="scan-line"></div>
+
+    <nav class="fixed top-0 w-full p-6 z-50 border-b border-red-900/30 bg-black/80 backdrop-blur-lg">
         <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-xl md:text-2xl font-black italic tracking-tighter uppercase text-white">N&M<span class="accent-text">_Foundation</span></h1>
-            <div class="hidden md:flex space-x-10 text-[10px] font-bold tracking-[0.2em] text-gray-400">
-                <a href="#services" class="hover:text-blue-500 transition">SERVICES</a>
-                <a href="#reviews" class="hover:text-blue-500 transition">CLIENTS</a>
-                <a href="https://wa.me/916355824044" class="bg-blue-600 px-5 py-2 rounded text-[10px] font-bold text-white hover:bg-blue-700 transition uppercase tracking-widest italic">Get Support</a>
+            <h1 class="text-xl md:text-2xl font-black italic tracking-widest neon-text glitch uppercase">N&M_FOUNDATION</h1>
+            <div class="hidden md:flex space-x-10 text-[10px] font-bold tracking-[0.3em] text-red-500/70">
+                <a href="#services" class="hover:text-white transition uppercase">Protocols</a>
+                <a href="#stats" class="hover:text-white transition uppercase">Archives</a>
+                <a href="https://wa.me/916355824044" class="neon-border px-6 py-2 rounded-sm bg-red-950/20 text-red-500 hover:bg-red-600 hover:text-white transition">LINK_ESTABLISHED</a>
             </div>
         </div>
     </nav>
 
-    <header class="min-h-[70vh] flex items-center justify-center pt-32 px-6 text-center">
-        <div class="max-w-4xl">
-            <h2 class="text-5xl md:text-8xl font-black mb-8 italic tracking-tighter text-white uppercase leading-none">
-                Elite <span class="accent-text">Cyber</span> Authority.
+    <header class="min-h-screen flex items-center justify-center px-6 pt-20">
+        <div class="text-center">
+            <div class="mb-6 inline-block px-4 py-1 border border-red-600 text-[9px] uppercase tracking-[0.6em] text-red-500 font-bold bg-red-600/10">Neural Interface: Online</div>
+            <h2 class="text-5xl md:text-8xl font-black mb-8 italic tracking-tighter text-white leading-none uppercase">
+                ELITE <span class="neon-text">CYBER</span> AUTHORITY.
             </h2>
-            <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-lg leading-relaxed mb-12 italic">
-                Protecting enterprise infrastructure with advanced forensics and proactive defense strategies.
+            <p class="text-gray-400 max-w-2xl mx-auto text-xs md:text-lg leading-relaxed mb-12 uppercase tracking-widest font-light">
+                Neural Defense // Forensics Analysis // AI Threat Mitigation
             </p>
-            <a href="solutions.html" class="px-12 py-4 bg-white text-black font-black rounded uppercase text-xs tracking-widest hover:bg-gray-200 transition">Enter Portal</a>
+            <div class="flex flex-col sm:flex-row justify-center gap-8">
+                <a href="solutions.html" class="px-12 py-4 bg-red-600 text-black font-black uppercase text-xs tracking-widest hover:bg-red-700 transition shadow-[0_0_25px_rgba(255,0,0,0.5)]">Enter Portal</a>
+                <a href="https://wa.me/916355824044" class="px-12 py-4 border border-red-600 text-red-500 font-black uppercase text-xs tracking-widest hover:bg-red-600 hover:text-white transition">Contact Core</a>
+            </div>
         </div>
     </header>
 
-    <section class="container mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="text-center border-r border-gray-900 last:border-0">
-            <div class="text-2xl md:text-4xl font-black accent-text">50+</div>
-            <div class="text-[9px] uppercase font-bold text-gray-600 tracking-widest">Global Audits</div>
-        </div>
-        <div class="text-center border-r border-gray-900 last:border-0">
-            <div class="text-2xl md:text-4xl font-black accent-text">120+</div>
-            <div class="text-[9px] uppercase font-bold text-gray-600 tracking-widest">Tools Deployed</div>
-        </div>
-        <div class="text-center border-r border-gray-900 last:border-0">
-            <div class="text-2xl md:text-4xl font-black accent-text">100%</div>
-            <div class="text-[9px] uppercase font-bold text-gray-600 tracking-widest">Integrity Rate</div>
-        </div>
-        <div class="text-center border-r border-gray-900 last:border-0">
-            <div class="text-2xl md:text-4xl font-black accent-text">24/7</div>
-            <div class="text-[9px] uppercase font-bold text-gray-600 tracking-widest">Intelligence</div>
-        </div>
-    </section>
-
-    <section id="reviews" class="container mx-auto px-6 py-24 border-t border-gray-900">
-        <div class="text-center mb-16">
-            <h3 class="text-3xl font-black uppercase tracking-widest text-white italic">Client Intelligence</h3>
-            <p class="text-gray-500 text-xs mt-2 uppercase tracking-[0.3em]">Verified Agency Feedback</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 italic">
-            <div class="review-card p-8 rounded-2xl relative">
-                <span class="text-5xl text-blue-900 absolute top-4 right-6 opacity-20">"</span>
-                <p class="text-xs text-gray-400 leading-relaxed mb-6">
-                    "N&M Foundation's automated OSINT tools saved our team weeks of manual intelligence gathering. Their forensics suite is enterprise-grade."
-                </p>
-                <div class="border-t border-gray-900 pt-4">
-                    <p class="text-[10px] font-black text-white uppercase tracking-widest">Director of IT</p>
-                    <p class="text-[9px] text-blue-500 font-bold uppercase">Tech Solutions Corp</p>
-                </div>
+    <section id="stats" class="container mx-auto px-6 py-20">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="neon-border p-8 rounded-sm bg-black/40 text-center">
+                <div class="text-3xl md:text-5xl font-black neon-text mb-2 italic">50+</div>
+                <div class="text-[8px] uppercase font-bold text-gray-500 tracking-[0.4em]">Audits_Run</div>
             </div>
-
-            <div class="review-card p-8 rounded-2xl relative border-blue-900/30 shadow-2xl">
-                <span class="text-5xl text-blue-900 absolute top-4 right-6 opacity-20">"</span>
-                <p class="text-xs text-gray-400 leading-relaxed mb-6">
-                    "The forensic log investigation provided by N&M Foundation was crucial in securing our infrastructure after a major threat alert."
-                </p>
-                <div class="border-t border-gray-900 pt-4">
-                    <p class="text-[10px] font-black text-white uppercase tracking-widest">Security Analyst</p>
-                    <p class="text-[9px] text-blue-500 font-bold uppercase">FinSafe Global</p>
-                </div>
+            <div class="neon-border p-8 rounded-sm bg-black/40 text-center border-red-500/50">
+                <div class="text-3xl md:text-5xl font-black neon-text mb-2 italic">120+</div>
+                <div class="text-[8px] uppercase font-bold text-gray-500 tracking-[0.4em]">Nodes_Deployed</div>
             </div>
-
-            <div class="review-card p-8 rounded-2xl relative">
-                <span class="text-5xl text-blue-900 absolute top-4 right-6 opacity-20">"</span>
-                <p class="text-xs text-gray-400 leading-relaxed mb-6">
-                    "Professional, ethical, and extremely fast. Their Cyber Defense methodologies are exactly what modern enterprises need today."
-                </p>
-                <div class="border-t border-gray-900 pt-4">
-                    <p class="text-[10px] font-black text-white uppercase tracking-widest">Chief Tech Officer</p>
-                    <p class="text-[9px] text-blue-500 font-bold uppercase">CloudNet Systems</p>
-                </div>
+            <div class="neon-border p-8 rounded-sm bg-black/40 text-center">
+                <div class="text-3xl md:text-5xl font-black neon-text mb-2 italic">100%</div>
+                <div class="text-[8px] uppercase font-bold text-gray-500 tracking-[0.4em]">Integrity_Check</div>
+            </div>
+            <div class="neon-border p-8 rounded-sm bg-black/40 text-center">
+                <div class="text-3xl md:text-5xl font-black neon-text mb-2 italic text-green-500 shadow-green-500">LIVE</div>
+                <div class="text-[8px] uppercase font-bold text-gray-500 tracking-[0.4em]">System_Status</div>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 text-center border-t border-gray-900 bg-black">
-        <p class="text-[9px] text-gray-800 font-bold tracking-[0.5em] uppercase">© 2026 N&M Foundation | Strategic Cyber Intelligence</p>
+    <footer class="py-20 border-t border-red-900/50 bg-black text-center px-6">
+        <p class="text-red-900 text-[10px] tracking-[0.8em] uppercase mb-10 font-black">Confidentiality // Integrity // Availability</p>
+        <p class="mt-4 text-[8px] text-gray-700 font-bold uppercase">© 2026 N&M Foundation // Root@Neural_Link ~$ Exit_Success</p>
     </footer>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            for (let i = 0; i < 100; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2,
+                    speed: Math.random() * 0.5 + 0.2,
+                    opacity: Math.random()
+                });
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                ctx.fillStyle = `rgba(255, 0, 0, ${p.opacity})`;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+                
+                p.y -= p.speed;
+                p.opacity = Math.sin(Date.now() * 0.001 + p.x) * 0.5 + 0.5; // Blinking effect
+                
+                if (p.y < 0) p.y = canvas.height;
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        init();
+        animate();
+    </script>
 
 </body>
 </html>
