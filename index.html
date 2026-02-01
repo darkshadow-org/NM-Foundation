@@ -33,6 +33,41 @@
         }
     </style>
 </head>
+<div id="diag-monitor" style="position:fixed; bottom:10px; left:10px; background:rgba(255,0,0,0.1); border:1px solid #ff0000; color:#ff0000; font-family:monospace; font-size:10px; padding:10px; z-index:9999; pointer-events:none;">
+    [SYSTEM_DIAGNOSTIC_ACTIVE]<br>
+    <span id="check-auth">> Checking auth.html...</span><br>
+    <span id="check-solutions">> Checking solutions.html...</span><br>
+    <span id="check-razor">> Checking Razorpay...</span>
+</div>
+
+<script>
+async function runDiagnostic() {
+    // Check auth.html
+    try {
+        const res1 = await fetch('./auth.html');
+        document.getElementById('check-auth').innerHTML = res1.ok ? 
+            '<span style="color:#00ff41">> [OK] auth.html Found</span>' : 
+            '<span style="color:#ff0000">> [ERROR] auth.html 404 - File Not Found</span>';
+    } catch(e) { document.getElementById('check-auth').innerText = '> [ERROR] Connection Failed'; }
+
+    // Check solutions.html
+    try {
+        const res2 = await fetch('./solutions.html');
+        document.getElementById('check-solutions').innerHTML = res2.ok ? 
+            '<span style="color:#00ff41">> [OK] solutions.html Found</span>' : 
+            '<span style="color:#ff0000">> [ERROR] solutions.html 404 - File Not Found</span>';
+    } catch(e) { document.getElementById('check-solutions').innerText = '> [ERROR] Connection Failed'; }
+
+    // Check Razorpay Script
+    if (window.Razorpay || document.querySelector('script[src*="razorpay"]')) {
+        document.getElementById('check-razor').innerHTML = '<span style="color:#00ff41">> [OK] Razorpay Module Loaded</span>';
+    } else {
+        document.getElementById('check-razor').innerHTML = '<span style="color:#ff0000">> [WARN] Razorpay Script Missing</span>';
+    }
+}
+runDiagnostic();
+</script>
+    
 <body>
 
     <canvas id="canvas"></canvas>
