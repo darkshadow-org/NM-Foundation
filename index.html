@@ -11,11 +11,8 @@
         body { background-color: var(--dark-bg); color: #fff; font-family: 'JetBrains Mono', monospace; overflow-x: hidden; }
         h1, h2, h3, .font-tech { font-family: 'Orbitron', sans-serif; }
         .neon-text-red { text-shadow: 0 0 5px var(--neon-red); color: var(--neon-red); }
-        .neon-text-green { text-shadow: 0 0 8px var(--neon-green); color: var(--neon-green); font-weight: 900; }
         .neon-border-red { border: 1px solid rgba(255, 0, 0, 0.4); box-shadow: 0 0 10px rgba(255, 0, 0, 0.1); transition: 0.3s; }
         .neon-border-red:hover { border-color: var(--neon-red); box-shadow: 0 0 20px rgba(255, 0, 0, 0.4); background: rgba(255, 0, 0, 0.05); }
-        .live-border { border: 2px solid var(--neon-green); box-shadow: 0 0 15px rgba(0, 255, 65, 0.2); animation: pulse-green 2s infinite; }
-        @keyframes pulse-green { 0% { box-shadow: 0 0 5px rgba(0, 255, 65, 0.2); } 50% { box-shadow: 0 0 25px rgba(0, 255, 65, 0.6); } 100% { box-shadow: 0 0 5px rgba(0, 255, 65, 0.2); } }
         #canvas { position: fixed; top: 0; left: 0; z-index: -1; width: 100%; height: 100%; }
         .hud-line { width: 100%; height: 1px; background: rgba(255, 0, 0, 0.15); position: fixed; animation: moveHUD 6s linear infinite; pointer-events: none; z-index: 50; }
         @keyframes moveHUD { 0% { top: 0; } 100% { top: 100%; } }
@@ -23,63 +20,39 @@
 </head>
 <body>
     <div id="diag-monitor" style="position:fixed; bottom:10px; left:10px; background:rgba(255,0,0,0.1); border:1px solid #ff0000; color:#ff0000; font-family:monospace; font-size:10px; padding:10px; z-index:9999; pointer-events:none;">
-        [SYSTEM_DIAGNOSTIC_ACTIVE]<br>
+        [DIAGNOSTIC_ACTIVE]<br>
         <span id="check-auth">> Checking auth.html...</span><br>
-        <span id="check-solutions">> Checking solutions.html...</span>
+        <span id="check-sol">> Checking solutions.html...</span>
     </div>
 
     <canvas id="canvas"></canvas>
     <div class="hud-line"></div>
 
     <nav class="fixed top-0 w-full p-6 z-50 border-b border-red-900/20 bg-black/90 backdrop-blur-md">
-        <div class="container mx-auto flex justify-between items-center text-[10px]">
+        <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-xl font-black tracking-widest neon-text-red uppercase italic">N&M_FOUNDATION</h1>
-            <div class="hidden md:flex space-x-8 font-bold tracking-[0.3em] text-red-500/60 uppercase">
-                <a href="#protocols" class="hover:text-white transition">Protocols</a>
-                <a href="#terminal" class="hover:text-white transition">Core_Logs</a>
+            <div class="hidden md:flex space-x-8 font-bold tracking-[0.3em] text-red-500/60 text-[10px] uppercase">
                 <a href="./auth.html" class="neon-border-red px-4 py-1.5 rounded text-red-500 hover:bg-red-600 hover:text-white transition italic">Secure_Login</a>
             </div>
         </div>
     </nav>
 
     <header class="min-h-screen flex flex-col items-center justify-center px-6 text-center">
-        <div class="mb-4 inline-block px-3 py-1 border border-red-900/50 text-[8px] uppercase tracking-[1em] text-red-600 font-bold bg-red-950/5">AI_Core_Status: Synchronized</div>
         <h2 class="text-4xl md:text-7xl font-black mb-10 tracking-tighter text-white uppercase italic leading-none">
             ELITE <span class="neon-text-red">CYBER</span> AUTHORITY.
         </h2>
         <div class="flex flex-wrap justify-center gap-6">
-            <a href="./auth.html" class="px-10 py-3 bg-red-600 text-black font-black uppercase text-[10px] tracking-widest hover:bg-red-500 transition shadow-lg shadow-red-900/40">Access Portal</a>
-            <a href="https://wa.me/916355824044" class="px-10 py-3 border border-red-600 text-red-500 font-black uppercase text-[10px] tracking-widest hover:bg-red-600 hover:text-white transition">Deploy Intelligence</a>
+            <a href="./auth.html" class="px-10 py-3 bg-red-600 text-black font-black uppercase text-[10px] tracking-widest hover:bg-red-500 transition">Access Portal</a>
+            <a href="https://wa.me/916355824044" class="px-10 py-3 border border-red-600 text-red-500 font-black uppercase text-[10px] tracking-widest hover:bg-red-600 hover:text-white transition">Contact Core</a>
         </div>
     </header>
 
-    <section id="stats" class="container mx-auto px-6 mb-20">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="neon-border-red p-8 bg-black/60 rounded backdrop-blur-sm text-center">
-                <div class="text-3xl font-black neon-text-red mb-1 italic">50+</div>
-                <div class="text-[8px] uppercase font-bold text-gray-600 tracking-[0.4em]">Audits_Run</div>
-            </div>
-            <div class="neon-border-red p-8 bg-black/60 rounded backdrop-blur-sm text-center">
-                <div class="text-3xl font-black neon-text-red mb-1 italic">120+</div>
-                <div class="text-[8px] uppercase font-bold text-gray-600 tracking-[0.4em]">Nodes_Active</div>
-            </div>
-            <div class="neon-border-red p-8 bg-black/60 rounded backdrop-blur-sm text-center">
-                <div class="text-3xl font-black neon-text-red mb-1 italic">100%</div>
-                <div class="text-[8px] uppercase font-bold text-gray-600 tracking-[0.4em]">Integrity</div>
-            </div>
-            <div class="live-border p-8 bg-black/80 rounded text-center">
-                <div class="text-3xl font-black neon-text-green mb-1 uppercase italic">LIVE</div>
-                <div class="text-[8px] uppercase font-bold text-green-500/70 tracking-[0.4em]">System_Status</div>
-            </div>
-        </div>
-    </section>
-
     <script>
-        // Diagnostic Code
+        // Diagnostic Engine
         async function runDiag() {
             const files = ['./auth.html', './solutions.html'];
-            const ids = ['check-auth', 'check-solutions'];
-            for(let i=0; i<files.length; i++) {
+            const ids = ['check-auth', 'check-sol'];
+            for(let i=0; i<files.length; i++){
                 try {
                     const res = await fetch(files[i]);
                     document.getElementById(ids[i]).innerHTML = res.ok ? `<span style="color:#00ff41">> [OK] ${files[i]} Found</span>` : `<span style="color:#ff0000">> [ERR] ${files[i]} 404</span>`;
@@ -88,7 +61,7 @@
         }
         runDiag();
 
-        // Particles Code
+        // Particles
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
