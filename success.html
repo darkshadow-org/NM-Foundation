@@ -5,35 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Successful | N&M Foundation</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #050505; color: #e5e7eb; font-family: sans-serif; }
-        .success-box { border: 1px solid #10b981; background: rgba(16, 185, 129, 0.05); }
+        body { background-color: #050505; color: #e5e7eb; font-family: 'Inter', sans-serif; }
+        .success-card { border: 1px solid #10b981; background: rgba(16, 185, 129, 0.05); box-shadow: 0 0 40px rgba(16, 185, 129, 0.1); }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen px-4">
+<body class="flex items-center justify-center min-h-screen px-6 py-10">
 
-    <div class="max-w-md w-full success-box p-10 rounded-2xl text-center">
-        <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+    <div class="max-w-md w-full success-card p-8 md:p-12 rounded-3xl text-center">
+        <div class="w-16 h-16 md:w-20 md:h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg shadow-green-900/40">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 md:h-10 md:w-10 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" />
             </svg>
         </div>
         
-        <h2 class="text-3xl font-bold text-white mb-2">Payment Received!</h2>
-        <p class="text-gray-400 mb-8 text-sm leading-relaxed">
-            Thank you for choosing <span class="text-green-500 font-bold text-white">N&M Foundation</span>. Humne aapka order receive kar liya hai. 
+        <h2 class="text-2xl md:text-3xl font-black text-white mb-3 uppercase tracking-tight">Payment Verified</h2>
+        <p class="text-gray-400 mb-10 text-xs md:text-sm leading-relaxed">
+            Thank you for choosing <span class="text-green-500 font-bold tracking-wide">N&M Foundation</span>. Your transaction has been successfully processed. 
         </p>
 
-        <div class="bg-black/50 p-4 rounded-lg border border-gray-800 text-left mb-8">
-            <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-2 font-bold italic">Next Steps:</p>
-            <p class="text-xs text-gray-400">• Check your email for the transaction receipt.</p>
-            <p class="text-xs text-gray-400">• Our team will send your exclusive toolkit on your registered WhatsApp/Email within 30 minutes.</p>
+        <div class="bg-black/60 p-5 md:p-6 rounded-2xl border border-gray-800 text-left mb-10">
+            <p class="text-[9px] md:text-[10px] text-gray-500 uppercase tracking-[0.3em] mb-4 font-black italic">Next Steps & Delivery</p>
+            <ul class="space-y-3">
+                <li class="flex items-start text-[10px] md:text-xs text-gray-400">
+                    <span class="text-green-500 mr-2 font-bold">01.</span> A transaction receipt has been sent to your registered email.
+                </li>
+                <li class="flex items-start text-[10px] md:text-xs text-gray-400">
+                    <span class="text-green-500 mr-2 font-bold">02.</span> Our secure delivery team will provide your toolkit within 30 minutes.
+                </li>
+                <li class="flex items-start text-[10px] md:text-xs text-gray-400">
+                    <span class="text-green-500 mr-2 font-bold">03.</span> Check your WhatsApp or Email for the download link and License Key.
+                </li>
+            </ul>
         </div>
 
-        <a href="https://wa.me/916355824044?text=Hi%20N&M%20Foundation,%20I%20just%20completed%20my%20payment." 
-           class="inline-block w-full bg-green-600 text-black font-bold py-3 rounded-lg hover:bg-green-400 transition">
-            CONTACT SUPPORT
+        <a href="https://wa.me/916355824044?text=Hi%20N&M%20Foundation,%20I%20have%20successfully%20completed%20the%20payment%20for%20the%20Forensics%20Pro%20Toolkit." 
+           class="inline-block w-full bg-green-600 text-black font-black py-3.5 md:py-4 rounded-xl hover:bg-green-400 transition-all uppercase text-xs md:text-sm tracking-widest shadow-lg shadow-green-900/20">
+            Contact Support via WhatsApp
         </a>
+        
+        <p class="mt-8 text-[8px] md:text-[9px] text-gray-600 uppercase tracking-[0.5em] font-bold">Cyber Defense • Forensics • Security</p>
     </div>
 
 </body>
