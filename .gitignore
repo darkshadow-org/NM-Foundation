@@ -1,0 +1,8 @@
+# Secret keys file
+config.js
+.env
+auth_keys.json
+
+# System files (Optional)
+node_modules/
+.DS_Store
